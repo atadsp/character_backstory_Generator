@@ -43,7 +43,6 @@ var player = new Character();
 Character.prototype.generateCharacter = function(){
 this.charName = $("#charName").val();
 this.isPlayerCharacter = true;
-
 var rangen = Math.floor(Math.random() * (2 - 1 +1)) + 1;
 if (rangen === 1){
 	this.charGender = 'Female';
@@ -182,10 +181,8 @@ Character.prototype.social103 = function(){
 		this.charSocial = "Destitute";
 		this.nativeLiteracy = 5;
 		this.wealth += 0.25;
-
 		var ransurv = Math.floor(Math.random() * (2 -1 + 1) + 1);
 		var undwldexp = Math.floor(Math.random() * (10 - 1 + 1) + 1);
-
 		if (this.charEnviroment === "Wilderness"){
 			this.wildernessSurvivalRank += ransurv; 
 		} else if (this.charEnviroment ==="Urban"){
@@ -203,7 +200,6 @@ Character.prototype.social103 = function(){
 		this.charSocial = "Poor";
 		this.nativeLiteracy += -15;
 		this.wealth += 0.5;
-
 		var ranstrtfight = Math.floor(Math.random() * (2 -1 + 1) + 1);
 		if (ranstrtfight === 1){
 			this.streetFightRank += 3;
@@ -256,7 +252,6 @@ Character.prototype.social103 = function(){
 			this.charSocial = "Extremely Wealthy";
 			this.wealth += 20;
 			this.itemArry.push('Any mundane items within reason', 'Minor Magical Item')
-
 		var extraLanguage = Math.floor(Math.random() * (4 -1 + 1) + 1);
 			for (i = 0; i < extraLanguage; i++){
 				this.foreignLiteracy.push(30);
@@ -279,8 +274,6 @@ Character.prototype.social103 = function(){
 			this.urbanSurvivalRank -= ransurv;
 		}
 	}
-
-
 	this.postChar();
 }
 
