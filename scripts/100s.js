@@ -1,66 +1,20 @@
-//character object
-function Character(){
-	//basis character information
-	this.charName = "";
-	this.isPlayerCharacter = true;
-	this.charGender = "";
-	this.subjectivePronoun = "";
-	this.possesivePronoun = "";
-	this.objectivePronoun = "";
-	this.reflexivePronoun = "";
-	this.charRace = "";
-	//main cultural variables
-	this.charCultMod = 0;
-	this.charCulture = "";
-	this.charEnviroment = "";
-	//Character social variables
-	this.charSocial = "";
-	this.charSocMod = 0;
-	//Nobility Variables 
-	this.isNoble = false;
-	this.tiMod=0;
-	this.nobleTitle = "";
-	//literacy
-	this.nativeLiteracy = 0;
-	this.foreignLiteracy = [];
-	//skill ranks
-	this.weaponRank = 0;
-	this.meleeWeaponRank = 0;
-	this.missileWeaponRank = 0;
-	this.wildernessSurvivalRank = 0;
-	this.huntingGatheringRank = 0;
-	this.urbanSurvivalRank = 0;
-	this.ridingRank = 0;
-	this.streetFightRank = 0;
-	//array of all character items
-	this.itemArry = [];
-	this.wealth = 0;
-	//special resistances
-	this.insaneresist = 0;
-}
-var player = new Character();
-
-Character.prototype.generateCharacter = function(){
-this.charName = $("#charName").val();
-this.isPlayerCharacter = true;
-var rangen = Math.floor(Math.random() * (2 - 1 +1)) + 1;
-if (rangen === 1){
-	this.charGender = 'Female';
-	this.subjectivePronoun = "she";
-	this.possesivePronoun = "hers";
-	this.objectivePronoun = "her";
-	this.reflexivePronoun = "herself";
-}
-else{
-	this.charGender = 'Male';
-	this.subjectivePronoun = "he";
-	this.possesivePronoun = "his";
-	this.objectivePronoun = "him";
-	this.reflexivePronoun = "himself";
-}
+Character.prototype.setGender = function(){
+	var rangen = Math.floor(Math.random() * (2 - 1 +1)) + 1;
+	if (rangen === 1){
+		this.charGender = 'Female';
+		this.subjectivePronoun = "she";
+		this.possesivePronoun = "hers";
+		this.objectivePronoun = "her";
+		this.reflexivePronoun = "herself";
+	} else{
+		this.charGender = 'Male';
+		this.subjectivePronoun = "he";
+		this.possesivePronoun = "his";
+		this.objectivePronoun = "him";
+		this.reflexivePronoun = "himself";
+	}
 this.race101();
 };
-
 
 Character.prototype.race101 = function() {
 	var ranrace = Math.floor(Math.random() * (20 - 1 +1)) + 1;
@@ -172,10 +126,9 @@ this.social103();
 
 Character.prototype.social103 = function(){
 	var ransoc = ((Math.floor(Math.random() * (100 - 1 + 1) + 1)) + this.charCultMod);
-	if (isNoble === true){
+	if (this.isNoble === true){
 		ransoc += this.tiMod;
 	}
-	console.log(ransoc);
 	if(ransoc < 12){
 		this.charSocMod += -3;
 		this.charSocial = "Destitute";
@@ -184,14 +137,14 @@ Character.prototype.social103 = function(){
 		var ransurv = Math.floor(Math.random() * (2 -1 + 1) + 1);
 		var undwldexp = Math.floor(Math.random() * (10 - 1 + 1) + 1);
 		if (this.charEnviroment === "Wilderness"){
-			this.wildernessSurvivalRank += ransurv; 
+			this.wildernessSurvivalRank += ransurv;
 		} else if (this.charEnviroment ==="Urban"){
 			this.urbanSurvivalRank += ransurv;
 		}
 		//Civilized and Decadent desitute characters have a chance for an underworld experience
 		if (this.charCulture === "Civilized" && undwldexp <5){
 			this.underworld534();
-		} 
+		}
 		if (this.charCulture === "Civilized-Decadent" && undwldexp < 7 ){
 			this.underworld534();
 		}
@@ -221,12 +174,12 @@ Character.prototype.social103 = function(){
 		this.nativeLiteracy += 30;
 		this.itemArry.push('Weapon', 'Weapon', 'Riding Animal');
 		if (this.charEnviroment === "Wilderness"){
-			this.wildernessSurvivalRank += -1; 
+			this.wildernessSurvivalRank += -1;
 		} else if (this.charEnviroment ==="Urban"){
 			this.urbanSurvivalRank += -1;
 		}
 	} else if (ransoc > 98){
-		if (isNoble === true){
+		if (this.isNoble === true){
 			this.social103();
 		} else {
 			isNoble = true;
@@ -236,22 +189,22 @@ Character.prototype.social103 = function(){
 			this.itemArry.push('Full set of non-magical weapons', 'Non-magical suit of armor');
 			this.charSocMod += 5;
 			var nobleExTraitRan = Math.floor(Math.random() * (2 -1 + 1) + 1);
-			if (nobleExTraitRan = 1){
+			if (nobleExTraitRan === 1){
 				this.exoticPersonalityTrait649();
 			}
 		if (this.charEnviroment === "Wilderness"){
-			this.wildernessSurvivalRank += -1; 
+			this.wildernessSurvivalRank += -1;
 		} else if (this.charEnviroment ==="Urban"){
 			this.urbanSurvivalRank += -1;
 		}
 		}
 	} else if (this.ransoc < 99 && this.ransoc > 94){
-		var extrmewealthchance = Math.floor(Math.random() * (100 -1 + 1) + 1;
-		if (extrmewealthchance <= (tiMod + 1)) ){
+		var extrmewealthchance = Math.floor(Math.random() * (100 -1 + 1) + 1);
+		if (extrmewealthchance <= (tiMod + 1)){
 			this.charSocMod += 8;
 			this.charSocial = "Extremely Wealthy";
 			this.wealth += 20;
-			this.itemArry.push('Any mundane items within reason', 'Minor Magical Item')
+			this.itemArry.push('Any mundane items within reason', 'Minor Magical Item');
 		var extraLanguage = Math.floor(Math.random() * (4 -1 + 1) + 1);
 			for (i = 0; i < extraLanguage; i++){
 				this.foreignLiteracy.push(30);
@@ -263,30 +216,16 @@ Character.prototype.social103 = function(){
 			this.wealth += 3;
 			var jewelynum = Math.floor(Math.random() * (3 -1 + 1) + 1);
 			for (i = 0; i < jewelynum; i++){
-				this.itemArry.push('Expensive Jewelry')
+				this.itemArry.push('Expensive Jewelry');
 			}
 		}
 		this.nativeLiteracy = 100;
 		var ransurv = Math.floor(Math.random() * (2 -1 + 1) + 1);
 		if (this.charEnviroment === "Wilderness"){
-			this.wildernessSurvivalRank -= ransurv; 
+			this.wildernessSurvivalRank -= ransurv;
 		} else if (this.charEnviroment ==="Urban"){
 			this.urbanSurvivalRank -= ransurv;
 		}
 	}
 	this.postChar();
-}
-
-Character.prototype.postChar = function(){
-$( "#characterInfo" ).empty();
-$( "#characterInfo" ).append( "<br> <div id='name'>Name: " + this.charName + "</div>" );
-$( "#characterInfo" ).append( "<div id='gender'>Gender: " + this.charGender + "</div>" );
-$( "#characterInfo" ).append( "<div id='race'>Race: " + this.charRace + "</div>" );
-$( "#characterInfo" ).append( "<div id='culture'>Culture: " + this.charCulture + "</div>" );
-$( "#characterInfo" ).append( "<div id='enviroment'>Enviroment: " + this.charEnviroment + "</div>" );
-$( "#characterInfo" ).append( "<div id='social'>Social Status: " + this.charSocial + "</div>" );
-
-if(isNoble === true){
-	$("#characterInfo").append( "<div id='noble'>Noble Title: " + this.nobleTitle + "</div>" );
-}
 };
