@@ -20,6 +20,13 @@ function Character(){
 	this.isNoble = false;
 	this.tiMod=0;
 	this.nobleTitle = "";
+	//legitimacy
+	this.charLegitMod = 0;
+	this.bastardReason = "";
+	this.isBastard = false;
+	this.isFatherKnown = false;
+	//family
+	
 	//literacy
 	this.nativeLiteracy = 0;
 	this.foreignLiteracy = [];
@@ -59,6 +66,10 @@ Character.prototype.generateCharacter = function(){
 	this.itemArry.length = 0;
 	this.wealth = 0;
 	this.insaneresist = 0;
+	this.charLegitMod = 0;
+	this.bastardReason = "";
+	this.isBastard = false;
+	this.isFatherKnown = false;
 	this.charName = $("#charName").val();
 	this.isPlayerCharacter = true;
 	this.setGender();
@@ -75,6 +86,12 @@ $( "#characterInfo" ).append( "<div id='enviroment'>Enviroment: " + this.charEnv
 $( "#characterInfo" ).append( "<div id='social'>Social Status: " + this.charSocial + "</div>" );
 if(this.isNoble === true){
 	$("#characterInfo").append( "<div id='noble'>Noble Title: " + this.nobleTitle + "</div>" );
+}
+if(this.isBastard === true){
+	$("#characterInfo").append("<div id='bastard'>" + this.bastardReason + "</div>");
+	if(this.isFatherKnown === true){
+		$("#characterInfo").append("<div id='fatherKnown'>" + this.charName + " knows " +this.possesivePronoun+ " father</div>");
+}
 }
 }
 };

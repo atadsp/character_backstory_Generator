@@ -1,5 +1,5 @@
 Character.prototype.setGender = function(){
-	var rangen = Math.floor(Math.random() * (2 - 1 +1)) + 1;
+	var rangen = Math.floor(Math.random() * (2 - 1 +1) + 1);
 	if (rangen === 1){
 		this.charGender = 'Female';
 		this.subjectivePronoun = "she";
@@ -68,7 +68,7 @@ if (rancult === 1) {
 	this.foreignLiteracy.push(10, 10);
 	this.charEnviroment = "Wilderness";
 //chance for a riding animal
-	var animalran = Math.floor(Math.random() * (4 - 1 +1)) + 1;
+	var animalran = Math.floor(Math.random() * (4 - 1 +1) + 1);
 	if (animalran < 4) {
 		this.itemArry.push('Riding Animal');
 	}
@@ -197,6 +197,7 @@ Character.prototype.social103 = function(){
 		} else if (this.charEnviroment ==="Urban"){
 			this.urbanSurvivalRank += -1;
 		}
+		this.social103();
 		}
 	} else if (this.ransoc < 99 && this.ransoc > 94){
 		var extrmewealthchance = Math.floor(Math.random() * (100 -1 + 1) + 1);
@@ -227,5 +228,75 @@ Character.prototype.social103 = function(){
 			this.urbanSurvivalRank -= ransurv;
 		}
 	}
-	this.postChar();
+	this.birthLegit104();
+};
+
+Character.prototype.birthLegit104 = function(){
+	var legitRan = Math.floor(Math.random() * (20 -1 + 1) + 1);
+	legitRan += this.charCultMod;
+	if (legitRan > 18){
+		this.isBastard = true;
+		this.charLegitMod = Math.floor(Math.random() * (4 -1 + 1) + 1);
+		this.charSocMod -= this.charLegitMod;
+		this.bastardReason105();
+		if (this.charSocMod < 0){
+			this.charSocMod = 0;
+		}
+	} else {
+		this.family106();
+	}
+};
+
+Character.prototype.bastardReason105 = function (){
+	var reasonChance = Math.floor(Math.random() * (20 -1 + 1) + 1);
+	reasonChance += this.charCultMod;
+	if (reasonChance < 12){
+		this.bastardReason = "Bastard: " + this.charName + "'s mother was a common unmarried prostitute.";
+		this.family106();
+	} else if (reasonChance === 13 || reasonChance === 14){
+		this.bastardReason = "Bastard: " + this.charName + "'s mother was raped and remained unmarried.";
+		this.fatherKnown105(15);
+	} else if (reasonChance > 14 && reasonChance < 24){
+		this.bastardReason = "Bastard: " + this.charName + "'s mother was unmarried";
+		this.fatherKnown105(50);
+	}	else if (reasonChance > 23){
+		this.bastardReason = "Bastard: " + this.charName +"'s mother was a courtesan (prostitute to a noble)";
+		this.fatherKnown105(50);
+	}
+};
+
+Character.prototype.fatherKnown105 = function (chance) {
+	var fatherKnownChance = Math.floor(Math.random() * (100 -1 + 1) + 1);
+	if (fatherKnownChance <= chance){
+		this.isFatherKnown = true;
+	}
+	this.family106();
+};
+
+Character.prototype.family106 = function (){
+	var familyRan = Math.floor(Math.random() * (20 -1 + 1) + 1);
+	familyRan += charCultMod;
+	if(familyRan < 9){
+
+	} else if(familyRan < 10 && familyRan > 8){
+
+	} else if(familyRan === 13){
+
+	} else if(familyRan === 14){
+
+	} else if(familyRan === 15){
+
+	} else if(familyRan === 16){
+
+	} else if(familyRan === 17 || familyRan ===18){
+
+	} else if(familyRan === 19){
+
+	} else if(familyRan === 20){
+
+	} else if(familyRan > 20 && familyRan < 25){
+
+	} else if(familyRan > 24){
+
+	}
 };
