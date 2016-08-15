@@ -3,7 +3,7 @@ Character.prototype.setGender = function(){
 	if (rangen === 1){
 		this.charGender = 'Female';
 		this.subjectivePronoun = "she";
-		this.possesivePronoun = "hers";
+		this.possesivePronoun = "her";
 		this.objectivePronoun = "her";
 		this.reflexivePronoun = "herself";
 	} else{
@@ -57,7 +57,6 @@ if (rancult === 1) {
 	this.nativeLiteracy += 5;
 	this.itemArry.push('One-handed Weapon');
 	this.charEnviroment = "Wilderness";
-
 } else if (rancult === 2 || rancult === 3){
 	this.charCulture = "Nomad";
 	this.charCultMod = 0;
@@ -179,12 +178,8 @@ Character.prototype.social103 = function(){
 			this.urbanSurvivalRank += -1;
 		}
 	} else if (ransoc > 98){
-		if (this.isNoble === true){
-			this.social103();
-		} else {
-			isNoble = true;
-			this.nobility758();
-			this.royalRelation872();
+		if (this.isNoble === false){
+			this.isNoble = true;
 			this.nativeLiteracy += 30;
 			this.itemArry.push('Full set of non-magical weapons', 'Non-magical suit of armor');
 			this.charSocMod += 5;
@@ -197,7 +192,11 @@ Character.prototype.social103 = function(){
 		} else if (this.charEnviroment ==="Urban"){
 			this.urbanSurvivalRank += -1;
 		}
+		this.nobility758();
+		this.royalRelation872();
 		this.social103();
+		} else {
+			this.social103();
 		}
 	} else if (this.ransoc < 99 && this.ransoc > 94){
 		var extrmewealthchance = Math.floor(Math.random() * (100 -1 + 1) + 1);
@@ -238,12 +237,18 @@ Character.prototype.birthLegit104 = function(){
 		this.isBastard = true;
 		this.charLegitMod = Math.floor(Math.random() * (4 -1 + 1) + 1);
 		this.charSocMod -= this.charLegitMod;
-		this.bastardReason105();
 		if (this.charSocMod < 0){
 			this.charSocMod = 0;
 		}
-	} else {
+		this.tiMod = 0;
+		if(this.isNoble === true){
+			this.nobleBastardMessage = "" + this.charName + " is a bastard of " + this.possesivePronoun + " dynasty and no longer gains benifits of being a noble. " + this.subjectivePronoun.capitalizeFirstLetter() + " will only inherit if " + this.subjectivePronoun + " is the sole heir reaming.";
+		}
+		this.bastardReason105();
+	}else if(this.isPlayerCharacter === true){
 		this.family106();
+	} else if(this.isPlayerCharacter === false){
+		this.npcOccupation114a();
 	}
 };
 
@@ -270,33 +275,114 @@ Character.prototype.fatherKnown105 = function (chance) {
 	if (fatherKnownChance <= chance){
 		this.isFatherKnown = true;
 	}
-	this.family106();
+	if(this.isPlayerCharacter === true){
+		this.family106();
+	} else if(this.isPlayerCharacter === false){
+		this.npcOccupation114a();
+	}
 };
 
 Character.prototype.family106 = function (){
 	var familyRan = Math.floor(Math.random() * (20 -1 + 1) + 1);
-	familyRan += charCultMod;
+	familyRan += this.charCultMod;
 	if(familyRan < 9){
+		if(this.isBastard === true && this.isFatherKnown === false && this.adopted === false){
+			this.family106();
+		} else {
+			this.generateNPC('mother');
+			this.generateNPC('father');
+		}
 
 	} else if(familyRan < 10 && familyRan > 8){
+		if(this.isBastard === true && this.isFatherKnown === false && this.adopted === false){
+			this.family106();
+		} else {
+			this.generateNPC('mother');
+			this.generateNPC('father');
+		}
 
 	} else if(familyRan === 13){
+		this.generateNPC('grandmother');
+		this.generateNPC('grandfather');
 
 	} else if(familyRan === 14){
+		var gfOrgm = Math.floor(Math.random() * (2 -1 + 1) + 1);
+		if(gfOrgm === 1){
+			this.generateNPC('grandmother');
+		} else {
+			this.generateNPC('grandfather');
+		}
 
 	} else if(familyRan === 15){
+		this.generateNPC('aunt');
+		this.generateNPC('uncle');
 
 	} else if(familyRan === 16){
+		var auntOrUncle = Math.floor(Math.random() * (2 -1 + 1) + 1);
+		if(auntOrUncle === 1){
+			this.generateNPC('aunt');
+		} else {
+			this.generateNPC('uncle');
+		}
 
 	} else if(familyRan === 17 || familyRan ===18){
+			this.generateNPC('mother');
 
 	} else if(familyRan === 19){
+		if(this.isBastard === true && this.isFatherKnown === false && this.adopted === false){
+			this.family106();
+		} else {
+			this.generateNPC('father');
+		}
 
 	} else if(familyRan === 20){
-
+		if(this.adopted === false){
+		this.isOrphan = true;
+		this.adopted = true;
+		var gaurdianRan = Math.floor(Math.random() * (20 -1 + 1) + 1);
+		if(gaurdianRan < 9){
+			this.guardian754();
+		} else {
+			this.family106();
+		}
+	} else {
+		this.family106();
+	}
 	} else if(familyRan > 20 && familyRan < 25){
+		if(this.adopted === false){
+			this.charSocMod = -3;
+			this.charSocial = "Destitute";
+			this.nativeLiteracy = 5;
+			this.wealth = 0.25;
+			this.itemArry.length = 0;
+			var ransurv = Math.floor(Math.random() * (3 -1 + 1) + 1);
+			if (this.charEnviroment === "Wilderness"){
+				this.wildernessSurvivalRank = ransurv;
+			} else if (this.charEnviroment ==="Urban"){
+				this.urbanSurvivalRank = ransurv;
+			}
+			this.isOrphan = true;
+			this.raisedInOrphanage = false;
+		} else {
+			this.family106();
+		}
 
 	} else if(familyRan > 24){
-
+		if(this.adopted ===false){
+			this.charSocMod = -1;
+			this.charSocial = "Poor";
+			this.nativeLiteracy += -15;
+			this.wealth = 0.5;
+			this.itemArry.length = 0;
+			var ranstrtfight = Math.floor(Math.random() * (2 -1 + 1) + 1);
+			if (ranstrtfight === 1){
+				this.streetFightRank += 3;
+			}
+			this.isOrphan = true;
+			this.raisedInOrphanage = true;
+		}else {
+			this.family106();
+		}
 	}
+	this.postChar();
 };

@@ -25,8 +25,11 @@ function Character(){
 	this.bastardReason = "";
 	this.isBastard = false;
 	this.isFatherKnown = false;
+	this.nobleBastardMessage = "";
 	//family
-	
+	this.isOrphan = false;
+	this.raisedInOrphanage = false;
+	this.adopted = false;
 	//literacy
 	this.nativeLiteracy = 0;
 	this.foreignLiteracy = [];
@@ -70,6 +73,10 @@ Character.prototype.generateCharacter = function(){
 	this.bastardReason = "";
 	this.isBastard = false;
 	this.isFatherKnown = false;
+	this.nobleBastardMessage = "";
+	this.isOrphan = false;
+	this.raisedInOrphanage = false;
+	this.adopted = false;
 	this.charName = $("#charName").val();
 	this.isPlayerCharacter = true;
 	this.setGender();
@@ -84,14 +91,17 @@ $( "#characterInfo" ).append( "<div id='race'>Race: " + this.charRace + "</div>"
 $( "#characterInfo" ).append( "<div id='culture'>Culture: " + this.charCulture + "</div>" );
 $( "#characterInfo" ).append( "<div id='enviroment'>Enviroment: " + this.charEnviroment + "</div>" );
 $( "#characterInfo" ).append( "<div id='social'>Social Status: " + this.charSocial + "</div>" );
-if(this.isNoble === true){
+if(this.isNoble === true && this.isOrphan === false){
 	$("#characterInfo").append( "<div id='noble'>Noble Title: " + this.nobleTitle + "</div>" );
 }
 if(this.isBastard === true){
-	$("#characterInfo").append("<div id='bastard'>" + this.bastardReason + "</div>");
-	if(this.isFatherKnown === true){
+	$("#characterInfo").append("<br><div id='bastard'>" + this.bastardReason + "</div>");
+	if(this.isFatherKnown === true && this.isOrphan === false){
 		$("#characterInfo").append("<div id='fatherKnown'>" + this.charName + " knows " +this.possesivePronoun+ " father</div>");
 }
+	if(this.isNoble === true && this.isOrphan === false){
+		$("#characterInfo").append("<div id='bastard'>" + this.nobleBastardMessage + "</div>");
+	}
 }
 }
 };
