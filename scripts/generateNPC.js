@@ -27,7 +27,7 @@ Character.prototype.generateNPC = function(type){
 	npc.nobleBastardMessage = "";
 	npc.isPlayerCharacter = false;
 
-	if(type == 'father' || type == 'uncle' || type == 'grandfather'){
+	if(type == 'father' || type == 'uncle' || type == 'grandfather' || type == 'male cousin' || type == 'brother'){
 		npc.charGender = 'Male';
 		npc.subjectivePronoun = "he";
 		npc.possesivePronoun = "his";
@@ -37,7 +37,7 @@ Character.prototype.generateNPC = function(type){
 		npc.charCulture = player.charCulture;
 		npc.charEnviroment = player.charEnviroment;
 		npc.charSocial = player.charSocial;
-	} else if (type == 'mother' || type =='aunt' || type == 'grandmother'){
+	} else if (type == 'mother' || type =='aunt' || type == 'grandmother' || type == 'female cousin' || type == 'sister'){
 		npc.charGender = 'Female';
 		npc.subjectivePronoun = "she";
 		npc.possesivePronoun = "her";

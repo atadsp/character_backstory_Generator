@@ -299,6 +299,43 @@ Character.prototype.family106 = function (){
 		} else {
 			this.generateNPC('mother');
 			this.generateNPC('father');
+			var numAuntUncle = Math.floor(Math.random() * (4 -1 + 1) + 1);
+			for(i = 0; i < numAuntUncle; i++){
+				var auntOrUncle = Math.floor(Math.random() * (2 - 1 + 1) +1);
+				if(auntOrUncle === 1){
+					this.generateNPC('aunt');
+				} else {
+					this.generateNPC('uncle');
+				}
+			}
+			if(numAuntUncle > 0){
+				var numCousin = Math.floor(Math.random() * (4 -1 + 1) + 1);
+				for(i = 0; i < numCousin; i++){
+					var maleOrFemale = Math.floor(Math.random() * (2 - 1 + 1) +1);
+					if(maleOrFemale === 1){
+						this.generateNPC('female cousin');
+					} else {
+						this.generateNPC('male cousin');
+					}
+				}
+			}
+			var numGrandFatherMother = Math.floor(Math.random() * (4 -1 + 1) + 1);
+			var numGrandmother = 0;
+			var numGrandfather = 0;
+			for(i = 0; i < numAuntUncle; i++){
+				var grandmotherOrFather = Math.floor(Math.random() * (2 - 1 + 1) +1);
+				if(grandmotherOrFather === 1 && numGrandmother < 2){
+					this.generateNPC('grandmother');
+					numGrandmother++;
+				} else if (numGrandfather < 2){
+					this.generateNPC('grandfather');
+					numGrandfather++;
+				} else {
+					this.generateNPC('grandmother');
+				}
+
+			}
+
 		}
 
 	} else if(familyRan === 13){
