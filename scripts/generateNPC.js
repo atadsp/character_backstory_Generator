@@ -27,7 +27,7 @@ Character.prototype.generateNPC = function(type){
 	npc.nobleBastardMessage = "";
 	npc.isPlayerCharacter = false;
 
-	if(type == 'father' || type == 'uncle' || type == 'grandfather' || type == 'male cousin' || type == 'brother'){
+	if(type == 'father' || type == 'uncle' || type == 'grandfather' || type == 'male cousin' || type == 'brother' || type == 'bastard brother'){
 		npc.charGender = 'Male';
 		npc.subjectivePronoun = "he";
 		npc.possesivePronoun = "his";
@@ -37,7 +37,7 @@ Character.prototype.generateNPC = function(type){
 		npc.charCulture = player.charCulture;
 		npc.charEnviroment = player.charEnviroment;
 		npc.charSocial = player.charSocial;
-	} else if (type == 'mother' || type =='aunt' || type == 'grandmother' || type == 'female cousin' || type == 'sister'){
+	} else if (type == 'mother' || type =='aunt' || type == 'grandmother' || type == 'female cousin' || type == 'sister' || type == 'bastard sister'){
 		npc.charGender = 'Female';
 		npc.subjectivePronoun = "she";
 		npc.possesivePronoun = "her";
@@ -48,7 +48,14 @@ Character.prototype.generateNPC = function(type){
 		npc.charEnviroment = player.charEnviroment;
 		npc.charSocial = player.charSocial;
 	}
-	npc.charName = type.capitalizeFirstLetter();
-
-console.log(npc);
+	
+	if(type == 'bastard brother'){
+		npc.charName = 'Brother';
+		npc.isBastard = true;
+	} else if (type == 'bastard sister'){
+		npc.charName = 'Sister';
+		npc.isBastard = true;
+	} else {
+		npc.charName = type.capitalizeFirstLetter();
+	}
 };

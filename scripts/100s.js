@@ -291,6 +291,7 @@ Character.prototype.family106 = function (){
 		} else {
 			this.generateNPC('mother');
 			this.generateNPC('father');
+			this.siblings107();
 		}
 
 	} else if(familyRan < 10 && familyRan > 8){
@@ -335,19 +336,23 @@ Character.prototype.family106 = function (){
 				}
 
 			}
+			this.siblings107();
 
 		}
 
 	} else if(familyRan === 13){
 		this.generateNPC('grandmother');
 		this.generateNPC('grandfather');
+		this.TimeofBirth109();
 
 	} else if(familyRan === 14){
 		var gfOrgm = Math.floor(Math.random() * (2 -1 + 1) + 1);
 		if(gfOrgm === 1){
 			this.generateNPC('grandmother');
+			this.TimeofBirth109();
 		} else {
 			this.generateNPC('grandfather');
+			this.TimeofBirth109();
 		}
 
 	} else if(familyRan === 15){
@@ -361,15 +366,18 @@ Character.prototype.family106 = function (){
 		} else {
 			this.generateNPC('uncle');
 		}
+		this.TimeofBirth109();
 
 	} else if(familyRan === 17 || familyRan ===18){
 			this.generateNPC('mother');
+			this.siblings107();
 
 	} else if(familyRan === 19){
 		if(this.isBastard === true && this.isFatherKnown === false && this.adopted === false){
 			this.family106();
 		} else {
 			this.generateNPC('father');
+			this.siblings107();
 		}
 
 	} else if(familyRan === 20){
@@ -379,6 +387,7 @@ Character.prototype.family106 = function (){
 		var gaurdianRan = Math.floor(Math.random() * (20 -1 + 1) + 1);
 		if(gaurdianRan < 9){
 			this.guardian754();
+			this.TimeofBirth109();
 		} else {
 			this.family106();
 		}
@@ -400,6 +409,7 @@ Character.prototype.family106 = function (){
 			}
 			this.isOrphan = true;
 			this.raisedInOrphanage = false;
+			this.TimeofBirth109();
 		} else {
 			this.family106();
 		}
@@ -417,9 +427,156 @@ Character.prototype.family106 = function (){
 			}
 			this.isOrphan = true;
 			this.raisedInOrphanage = true;
+			this.TimeofBirth109();
 		}else {
 			this.family106();
 		}
 	}
+};
+
+Character.prototype.siblings107 = function(){
+	var siblingRan = Math.floor(Math.random() * (20 -1 + 1) + 1);
+	var numSiblings = Math.floor(Math.random() * (3 -1 + 1) + 1);
+	if(siblingRan < 3){
+		if(this.bastardSiblings < 1){
+		this.wealth += 0.3;
+		this.TimeofBirth109();
+		} else {
+		this.siblings107();
+		}
+	} else if(siblingRan <10 && siblingRan >2){
+		for(i = 0; i < numSiblings; i++){
+			var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
+			if(siblingGender === 1){
+				this.generateNPC('sister');
+				this.siblingNum ++;
+			} else {
+				this.generateNPC('brother');
+				this.siblingNum ++;
+			}
+		}
+		this.birthOrder108();
+	} else if(siblingRan < 16 && siblingRan > 9){
+		numSiblings++;
+		for(i = 0; i < numSiblings; i++){
+			var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
+			if(siblingGender === 1){
+				this.generateNPC('sister');
+				this.siblingNum ++;
+			} else {
+				this.generateNPC('brother');
+				this.siblingNum ++;
+			}
+		}
+		this.birthOrder108();
+	} else if(siblingRan < 18 && siblingRan > 15){
+		numSiblings = Math.floor(Math.random() * (6 -3 + 1) + 3);
+		for(i = 0; i < numSiblings; i++){
+			var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
+			if(siblingGender === 1){
+				this.generateNPC('sister');
+				this.siblingNum ++;
+			} else {
+				this.generateNPC('brother');
+				this.siblingNum ++;
+			}
+		}
+		this.birthOrder108();
+	} else if(siblingRan < 20 && siblingRan > 17){
+		numSiblings = Math.floor(Math.random() * (8 - 2 + 1) + 2);
+		for(i = 0; i < numSiblings; i++){
+			var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
+			if(siblingGender === 1){
+				this.generateNPC('sister');
+				this.siblingNum ++;
+			} else {
+				this.generateNPC('brother');
+				this.siblingNum ++;
+			}
+		}
+		this.birthOrder108();
+	} else if(siblingRan > 19){
+		var numBastardSiblings = Math.floor(Math.random() * (3 -1 + 1) + 1);
+		for(i = 0; i < numSiblings; i++){
+			var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
+			if(siblingGender === 1){
+				this.generateNPC('bastard sister');
+				this.bastardSiblings ++;
+			} else {
+				this.generateNPC('bastard brother');
+				this.bastardSiblings ++;
+			}
+		}
+		this.siblings107();
+	}
+};
+
+Character.prototype.birthOrder108 = function(){
+	this.totalSibling = this.bastardSiblings + this.siblingNum;
+	var birthOrderRan = Math.floor(Math.random() * (20 -1 + 1) + 1);
+if(this.totalSibling === 1){
+	if(birthOrderRan < 11){
+		this.birthOrder = "First";
+		this.wealth += 0.2;
+	} else if(birthOrderRan > 10){
+		this.birthOrder = "Second";
+		this.wealth += 0.1;
+	}
+} else if(this.totalSibling === 2){
+	if(birthOrderRan < 7){
+		this.birthOrder = "First";
+		this.wealth += 0.2;
+	} else if(birthOrderRan < 15 && birthOrderRan > 6){
+		this.birthOrder = "Middle";
+		this.wealth += 0.1;
+	} else if(birthOrderRan > 14){
+		this.birthOrder = "Last";
+	}
+	// 30%
+	// 35%
+	// 35%
+} else if (this.totalSibling === 3){
+	if(birthOrderRan < 3){
+		this.birthOrder = "First";
+		this.wealth += 0.2;
+	} else if(birthOrderRan < 11 && birthOrderRan > 2){
+		this.birthOrder = "Second";
+		this.wealth += 0.1;
+	} else if(birthOrderRan < 18 && birthOrderRan > 10){
+		this.birthOrder = "Second-to-Last";
+	} else if(birthOrderRan > 17){
+		this.birthOrder = "Last";
+		this.wealth -= 0.1;
+	}
+	// 10% First
+	// 35% Second 
+	// 35% Middle
+	// 15%Last
+} else if( this.totalSibling >= 4) {
+	if(birthOrderRan < 3){
+		this.birthOrder = "First";
+		this.wealth += 0.2;
+	} else if(birthOrderRan < 11 && birthOrderRan > 2){
+		this.birthOrder = "Second";
+		this.wealth += 0.1;
+	} else if(birthOrderRan < 17 && birthOrderRan > 10){
+		this.birthOrder = "Middle";
+	} else if(birthOrderRan < 19 && birthOrderRan > 16){
+		this.birthOrder = "Second-to-Last";
+		this.wealth -= 0.1;
+	} else if(birthOrderRan > 18){
+		this.birthOrder = "Last";
+		this.wealth -= 0.2;
+	}
+	// 10% First
+	// 35% second
+	// 30% middle
+	// 10% second to Last
+	// 10% last
+}
+this.TimeofBirth109();
+};
+
+Character.prototype.TimeofBirth109 = function(){
 	this.postChar();
 };

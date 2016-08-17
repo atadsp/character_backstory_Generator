@@ -30,6 +30,10 @@ function Character(){
 	this.isOrphan = false;
 	this.raisedInOrphanage = false;
 	this.adopted = false;
+	this.siblingNum = 0;
+	this.bastardSiblings = 0;
+	this.birthOrder = "";
+	this.totalSibling = 0;
 	//literacy
 	this.nativeLiteracy = 0;
 	this.foreignLiteracy = [];
@@ -102,6 +106,9 @@ if(this.isBastard === true){
 	if(this.isNoble === true && this.isOrphan === false){
 		$("#characterInfo").append("<div id='bastard'>" + this.nobleBastardMessage + "</div>");
 	}
+}
+if(this.adopted === true){
+	$("#characterInfo").append("<div id='adopted'>" + this.charName + " was adopted by " + this.possesivePronoun + " current family</div>");
 }
 }
 };
