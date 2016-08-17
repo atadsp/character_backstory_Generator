@@ -578,5 +578,44 @@ this.TimeofBirth109();
 };
 
 Character.prototype.TimeofBirth109 = function(){
+	var ranMonth = Math.floor(Math.random() * (12 -1 + 1) + 1);
+
+    switch(ranMonth){
+        case 1: this.birthMonth = "January";
+            break;
+        case 2: this.birthMonth = "February";
+            break;
+        case 3: this.birthMonth = "March";
+            break;
+        case 4: this.birthMonth = "April";
+            break;
+        case 5: this.birthMonth = "May";
+            break;
+        case 6: this.birthMonth = "June";
+            break;
+        case 7: this.birthMonth = "July";
+            break;
+        case 8: this.birthMonth = "August";
+            break;
+        case 9: this.birthMonth = "September";
+            break;
+        case 10: this.birthMonth = "October";
+            break;
+        case 11: this.birthMonth = "November";
+            break;
+        case 12: this.birthMonth = "December";
+            break;
+        }
+	if(this.birthMonth === 'February'){
+		this.birthDay = Math.floor(Math.random() * (28 -1 + 1) + 1);
+		var extraDay = Math.floor(Math.random() * (4 -1 + 1) + 1);
+		if (extraDay === 4){
+			this.birthDay ++;
+		}
+	} else if (this.birthMonth === 'April' || this.birthMonth === 'June' || this.birthMonth === 'September' || this.birthMonth === 'November' ){
+		this.birthDay = Math.floor(Math.random() * (30 -1 + 1) + 1);
+	} else {
+		this.birthDay = Math.floor(Math.random() * (31 -1 + 1) + 1);
+	}
 	this.postChar();
 };
