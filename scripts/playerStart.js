@@ -40,6 +40,10 @@ function Character(){
 	this.birthPlace ="";
 	this.birthEvent = [];
 	this.birthMod = 0;
+	this.foreignLand = false;
+	this.hasbonus = false;
+	this.bornAtNight = false;
+	this.bornAtDay = false;
 	//literacy
 	this.nativeLiteracy = 0;
 	this.foreignLiteracy = [];
@@ -52,11 +56,15 @@ function Character(){
 	this.urbanSurvivalRank = 0;
 	this.ridingRank = 0;
 	this.streetFightRank = 0;
+	this.stealthRank = 0;
 	//array of all character items
 	this.itemArry = [];
 	this.wealth = 0;
-	//special resistances
+	//special bonuses
 	this.insaneresist = 0;
+	this.attributeBonus = [];
+	this.specialBonus = [];
+	this.naturalArmorBonus = 0;
 }
 var player = new Character();
 
@@ -87,6 +95,19 @@ Character.prototype.generateCharacter = function(){
 	this.isOrphan = false;
 	this.raisedInOrphanage = false;
 	this.adopted = false;
+	this.birthday = "";
+	this.birthMonth = "";
+	this.birthPlace ="";
+	this.birthEvent.length = 0;
+	this.birthMod = 0;
+	this.foreignLand = false;
+	this.hasbonus = false;
+	this.attributeBonus = [];
+	this.specialBonus = [];
+	this.naturalArmorBonus = 0;
+	this.stealthRank = 0;
+	this.bornAtNight = false;
+	this.bornAtDay = false;
 	this.charName = $("#charName").val();
 	this.isPlayerCharacter = true;
 	this.setGender();
@@ -105,6 +126,7 @@ if(this.isNoble === true && this.isOrphan === false){
 	$("#characterInfo").append( "<div id='noble'>Noble Title: " + this.nobleTitle + "</div>" );
 }
 $("#characterInfo").append( "<div id='birthday'>Birthday: " + this.birthMonth + ' ' + this.birthDay + "</div>" );
+$("#characterInfo").append( "<div id='birthLocation'>Birth Place: " + this.birthPlace + "</div>" );
 if(this.isBastard === true){
 	$("#characterInfo").append("<br><div id='bastard'>" + this.bastardReason + "</div>");
 	if(this.isFatherKnown === true && this.isOrphan === false){

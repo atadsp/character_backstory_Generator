@@ -617,5 +617,335 @@ Character.prototype.TimeofBirth109 = function(){
 	} else {
 		this.birthDay = Math.floor(Math.random() * (31 -1 + 1) + 1);
 	}
-	this.postChar();
+	this.placeOfBirth110();
+};
+
+Character.prototype.placeOfBirth110 = function(){
+	var ranBirthPlace = (Math.floor(Math.random() * (20 -1 + 1) + 1)) + this.charLegitMod;
+	var seed = this.charName + " was born";
+	var foreignSeed = this.charName + " was born in a foreign land";
+	if(ranBirthPlace < 7){
+		if(this.foreignLand === false){
+			this.birthPlace = seed + " in " + this.possesivePronoun +" family's home" ;
+		} else {
+			this.birthPlace = foreignSeed + " in " + this.possesivePronoun +" family's home";
+		}
+		this.BirthMod += -5;
+	}else if(ranBirthPlace <10 && ranBirthPlace > 6){
+		if(this.foreignLand === false){
+			this.birthPlace = seed + " in a hospital or healers guild hall";
+		} else {
+			this.birthPlace = foreignSeed + " in a hospital or healers guild hall";
+		}
+		this.BirthMod += -7;
+	}else if(ranBirthPlace === 10){
+		if(this.foreignLand === false){
+			this.birthPlace = seed + " in a carriage while travelling";
+		} else {
+			this.birthPlace = foreignSeed + " in a carriage while travelling";
+		}
+		this.BirthMod += 1;
+	}else if(ranBirthPlace === 11){
+		if(this.foreignLand === false){
+			this.birthPlace = seed + " in a common barn";
+		} else {
+			this.birthPlace = foreignSeed + " in a common barn";
+		}
+		this.BirthMod += 1;
+	}else if(ranBirthPlace === 12 || ranBirthPlace === 13){
+		if(this.foreignLand === false){
+			this.foreignLand = true;
+			this.BirthMod += 2;
+			this.placeOfBirth110();
+		} else {
+		this.placeOfBirth110();
+		}
+	}else if(ranBirthPlace ===14){
+		if (this.foreignLand === false){
+			this.birthPlace = seed + " in a cave";
+		} else {
+			this.birthPlace = foreignSeed + " in a cave";
+		}
+		this.BirthMod += 5;
+	}else if(ranBirthPlace ===15){
+		if(this.foreignLand === false) {
+			this.birthPlace = seed + " in the middle of a field";
+		} else {
+			this.birthPlace = foreignSeed + " in the middle of a field";
+		}
+		this.BirthMod += 1;
+	}else if(ranBirthPlace === 16){
+		if(this.foreignLand === false){
+			this.birthPlace = seed + " in a forest";
+		} else {
+			this.birthPlace = foreignSeed + " in a forest";
+		}
+		this.BirthMod += 2;
+	}else if(ranBirthPlace > 16){
+		this.exoticBirth111();
+	}
+	this.unusualBirth112();
+};
+
+Character.prototype.exoticBirth111 = function(){
+	var ranExoticBirth = Math.floor(Math.random() * (18 -1 + 1) + 1);
+	switch(ranExoticBirth){
+		case 1:
+			this.birthPlace = this.charName + " was born in a temple of a good deity";
+			this.BirthMod += 15;
+            break;
+        case 2:
+			var battleRan = Math.floor(Math.random() * (6 -1 + 1) + 1);
+			if(battleRan === 6){
+				this.birthPlace = this.charName + " was born on a battlefield.";
+			} else {
+				this.birthPlace = this.charName + " was born in a camp near a battlefield.";
+			}
+			this.BirthMod += 8;
+            break;
+        case 3:
+			this.birthPlace = this.charName + " was born in an alley.";
+			this.BirthMod += 5;
+            break;
+        case 4:
+			this.birthPlace = this.charName + " in a brothel.";
+			this.BirthMod += 2;
+            break;
+        case 5:
+			this.birthPlace = this.charName + " was born in the palace of a local ruler.";
+			this.BirthMod += 2;
+            break;
+        case 6:
+			this.birthPlace = this.charName + " was born in the palace of the ruler of " + this.possesivePronoun + " country.";
+			this.BirthMod += 5;
+            break;
+        case 7:
+			this.birthPlace = this.charName + " was born in the palace of an evil person, ruler or creature.";
+			this.BirthMod += 15;
+            break;
+        case 8:
+			this.birthPlace = this.charName + " was born in a bar, tavern, or ale house.";
+			this.BirthMod += 2;
+            break;
+        case 9:
+			this.birthPlace = this.charName + " was born in the sewers.";
+			this.BirthMod += 10;
+            break;
+        case 10:
+			this.birthPlace = this.charName + " was born in the theives den.";
+			this.BirthMod += 5;
+            break;
+        case 11:
+			this.birthPlace = this.charName + " was born in the home of a friendly non-human.";
+			this.BirthMod += 2;
+            break;
+        case 12:
+			this.birthPlace = this.charName + " was made by a powerful wizard. All memories of " + this.possesivePronoun + " memories are implanted by the wizard.";
+			this.BirthMod += 25;
+            break;
+        case 13:
+			this.birthPlace = this.charName + " was born in the temple of an evil diety";
+			this.BirthMod += 20;
+            break;
+        case 14:
+			this.birthPlace = this.charName + " was born on another plane of reality, and transported to this world sometime soon after birth";
+			this.BirthMod += 15;
+            break;
+        case 15:
+			this.birthPlace = this.charName + " was born in another time period, then transported to this time sometime after birth.";
+			this.BirthMod += 10;
+            break;
+        case 16:
+			this.birthPlace = this.charName + " was on a ship at sea.";
+			this.BirthMod += 2;
+            break;
+        case 17:
+			this.birthPlace = this.charName + " in a prison cell.";
+			this.BirthMod += 9;
+            break;
+        case 18:
+			this.birthPlace = this.charName + " was born in a wizard's laboratory.";
+			this.BirthMod += 20;
+            break;
+	}
+	this.unusualBirth112();
+};
+
+Character.prototype.unusualBirth112 = function(){
+	var unusualBirth = (Math.floor(Math.random() * (100 -1 + 1) + 1) + this.BirthMod);
+	if(unusualBirth < 61){
+		this.significantChildhoodEvents215();
+	} else if (unusualBirth < 77 && unusualBirth > 60){
+		this.unusualBirthEvents113(0);
+	} else if(unusualBirth < 93 && unusualBirth > 76){
+		for(i = 0; i < 2; i++){
+			this.unusualBirthEvents113(0);
+		}
+	} else if(unusualBirth < 98 && unusualBirth > 92){
+		for(i = 0; i < 3; i++){
+			this.unusualBirthEvents113(0);
+		}
+	} else if(unusualBirth > 97){
+		for(i = 0; i < 4; i++){
+			this.unusualBirthEvents113(0);
+		}
+	}
+};
+
+Character.prototype.unusualBirthEvents113 = function(bonus){
+	var birthEvent = (Math.floor(Math.random() * (100 -1 + 1) + 1) + bonus);
+	if(birthEvent < 6){
+		this.birthEvent.push('A person of note in the vicinity of ' + this.charName + "'s house died on the day that " + this.subjectivePronoun + " was born. Some blame " + this.objectivePronoun + " for the death, and other view " + this.objectivePronoun + " as a reincanation of the deceased.");
+	} else if (birthEvent < 11 && birthEvent > 5){
+		this.birthEvent.push('Wolves and dogs set up a howling at the exact moment of ' + this.charName + "'s birth");
+	} else if (birthEvent < 21 && birthEvent > 10){
+		this.birthEvent.push(this.charName + "'s mother died during childbirth.");
+	} else if (birthEvent < 24 && birthEvent > 20){
+		this.birthEvent.push('All of the glassware in the house suddenly shattered.');
+	} else if (birthEvent === 24 || birthEvent === 25){
+		this.birthEvent.push('All of the milk in the area near ' + this.charName + 'went sour at the moment of ' + this.objectivePronoun + "'s birth.");
+	} else if (birthEvent === 26 || birthEvent === 27){
+		this.birthEvent.push(this.charName + "'s father beleived that " + this.subjectivePronoun + " was not his child, but instead the child of another man.");
+	} else if (birthEvent < 32 && birthEvent > 27){
+		var seperated = Math.floor(Math.random() * (5 -1 + 1) + 1);
+		var evilTwin = Math.floor(Math.random() * (6 - 1 + 1)+1);
+		if(seperated === 5){
+			if(evilTwin === 6){
+				this.birthEvent.push(this.charName + " has an identical twin that was seperated at birth. The twin's personality is drasticlly diffrent from "+ this.charName+ "'s. Possible even the exact opposite.");
+			} else {
+				this.birthEvent.push(this.charName + " has an identical twin that was seperated at birth.");
+			}
+		} else {
+			if(evilTwin === 6){
+				this.birthEvent.push(this.charName + " has an identical twin. The twin's personality is drasticlly diffrent from "+ this.charName+ "'s. Possible even the exact opposite.");
+			} else {
+				this.birthEvent.push(this.charName + " has an identical twin.");
+			}
+		}
+	} else if (birthEvent < 35 && birthEvent > 31){
+		var boilOrFreeze = Math.floor(Math.random() * (2 -1 + 1) + 1);
+		if(boilOrFreeze === 1){
+			this.birthEvent.push('Near by water froze by itself.');
+		} else {
+			this.birthEvent.push('Near by water boiled by itself.');
+		}
+	} else if (birthEvent < 38 && birthEvent > 34){
+		this.birthEvent.push("On the day of " + this.charName + "'s birth there was seasonally unnatural weather");
+	} else if (birthEvent === 38){
+		this.birthEvent.push("On the day of " + this.charName + "'s birth unnaturally potent storms raged.");
+	} else if (birthEvent < 42 && birthEvent > 38){
+		if(this.bornAtNight === false && this.bornAtDay === false){
+			this.bornAtNight = true;
+			nightBonus = Math.floor(Math.random() * (10 -1 + 1) + 1);
+			ranAttribute = Math.floor(Math.random() * (6 -1 +1)+1);
+			if(nightBonus === 1){
+					this.attributeBonus.push("+" + ranAttribute + " to primary casting attribute at midnight and the hour following." );
+				} else if (nightBonus ===2 || nightBonus === 3){
+					this.specialBonus.push('Low-Light Vision');
+				} else if (nightBonus === 4 || nightBonus ===5){
+					this.specialBonus.push('Extremely pale skin - skin is sensitive to bright sunlight. ('+ this.charName +' takes 1 point of damage per hour of exposure to bright daylight.');
+				} else if (nightBonus === 6){
+					this.specialBonus.push("-" + ranAttribute +" to primary casting attribute at noon and the hour following.");
+				} else if (nightBonus ===7){
+					this.stealthRank++;
+				} else if (nightBonus ===8 || nightBonus === 9){
+					this.specialBonus.push("+2 to casting attribute after the sun sets or when shrouded in darkness.");
+				} else if (nightBonus === 10){
+					this.specialBonus.push("-2 to casting stat in daylight.");
+				}
+				this.birthEvent.push(this.charName + " was born exactly at midnight");
+			} else {
+				this.unusualBirthEvents113(bonus);
+			}
+	} else if (birthEvent < 45 && birthEvent > 41){
+		if(this.bornAtNight === false && this.bornAtDay === false){
+			this.bornAtDay = true;
+			dayBonus = Math.floor(Math.random() * (10 -1 + 1) + 1);
+			ranAttribute = Math.floor(Math.random() * (6 -1 +1)+1);
+				if(dayBonus === 1){
+					this.attributeBonus.push("+" + ranAttribute + " to primary casting attribute at noon and the hour following." );
+				} else if (dayBonus ===2 || dayBonus === 3){
+					this.specialBonus.push('No night vision (blinded by darkness)');
+				} else if (dayBonus === 4 || dayBonus ===5){
+					this.specialBonus.push('Extremely tanned skin.');
+					this.naturalArmorBonus ++;
+				} else if (dayBonus === 6){
+					this.specialBonus.push("-" + ranAttribute +" to primary casting attribute at noon and the hour following.");
+				} else if (dayBonus ===7){
+					this.stealthRank--;
+				} else if (dayBonus ===8 || dayBonus === 9){
+					this.specialBonus.push("+2 to casting attribute in the daylight.");
+				} else if (dayBonus === 10){
+					this.specialBonus.push("-2 to casting stat in darkness or after the sun sets.");
+				}
+			this.birthEvent.push(this.charName + " was born exactly at noon");
+		} else {
+			this.unusualBirthEvents113(bonus);
+		}
+	} else if (birthEvent < 49 && birthEvent > 45){
+		this.birthEvent.push("A seer declares that " + this.charName + " will be afflicted by an acient family curse");
+		this.curse868();
+	} else if (birthEvent === 49 || birthEvent === 50){
+		gooseEgg = Math.floor(Math.random() * (10 -1 + 1) + 1);
+		if(gooseEgg < 7){
+			this.birthEvent.push("A goose laid a golden egg. " + this.charName + " no longer has the egg.");
+		} else if(gooseEgg > 6 && gooseEgg < 10){
+			this.birthEvent.push("A goose laid a golden egg. " + this.charName + " still has the egg to this day.");
+		} else if(gooseEgg === 10){
+			this.birthEvent.push("A goose laid a golden egg. " + this.charName + " still has the egg to this day. The egg is magical!");
+		}
+	} else if (birthEvent < 54 && birthEvent > 50){
+		if(bornAtDay === true){
+			this.birthEvent.push("The sky darkened in a solar eclipse when "+this.charName +" was born.");
+		} else if (bornAtNight === true){
+			this.birthEvent.push("The moon and stars darkened when " + this.charName + " was born.");
+		} else {
+			var nightDay = Math.floor(Math.random() * (2 -1 +1)+1);
+			if(nightDay === 1){
+				this.bornAtDay = true;
+				this.birthEvent.push("The sky darkened in a solar eclipse when "+this.charName +" was born.");
+			} else {
+				this.bornAtNight = true;
+				this.birthEvent.push("The moon and stars darkened when " + this.charName + " was born.");
+			}
+		}
+	} else if (birthEvent === 54 || birthEvent === 55){
+		this.birthEvent.push(this.charName + "'s house was infested with poisonous snakes the day after " + this.possesivePronoun + " birth.");
+	} else if (birthEvent === 56){
+
+	} else if (birthEvent === 57){
+
+	} else if (birthEvent < 63 && birthEvent > 57){
+
+	} else if (birthEvent === 63 || birthEvent === 64){
+
+	} else if (birthEvent < 70 && birthEvent > 64){
+
+	} else if (birthEvent < 76 && birthEvent > 69){
+
+	} else if (birthEvent < 82 && birthEvent > 75){
+
+	} else if (birthEvent < 86 && birthEvent > 81){
+
+	} else if (birthEvent === 86){
+
+	} else if (birthEvent === 87 || birthEvent === 88){
+
+	} else if (birthEvent < 94 && birthEvent > 89){
+
+	} else if (birthEvent === 94){
+
+	} else if (birthEvent < 100 && birthEvent > 96){
+
+	} else if (birthEvent === 100){
+		for (i = 0; i < 2; i++){
+			this.unusualBirthEvents113(20);
+		}
+	} else if (birthEvent < 106 && birthEvent > 100){
+
+	} else if (birthEvent < 111 && birthEvent > 105){
+
+	} else if (birthEvent > 110){
+
+	}
 };
