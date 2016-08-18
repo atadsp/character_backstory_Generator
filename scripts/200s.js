@@ -1,3 +1,3 @@
-Character.function.significantChildhoodEvents215 = function(){
+Character.prototype.significantChildhoodEvents215 = function(){
 	this.postChar();
 };

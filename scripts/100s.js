@@ -630,32 +630,32 @@ Character.prototype.placeOfBirth110 = function(){
 		} else {
 			this.birthPlace = foreignSeed + " in " + this.possesivePronoun +" family's home";
 		}
-		this.BirthMod += -5;
+		this.birthMod += -5;
 	}else if(ranBirthPlace <10 && ranBirthPlace > 6){
 		if(this.foreignLand === false){
 			this.birthPlace = seed + " in a hospital or healers guild hall";
 		} else {
 			this.birthPlace = foreignSeed + " in a hospital or healers guild hall";
 		}
-		this.BirthMod += -7;
+		this.birthMod += -7;
 	}else if(ranBirthPlace === 10){
 		if(this.foreignLand === false){
 			this.birthPlace = seed + " in a carriage while travelling";
 		} else {
 			this.birthPlace = foreignSeed + " in a carriage while travelling";
 		}
-		this.BirthMod += 1;
+		this.birthMod += 1;
 	}else if(ranBirthPlace === 11){
 		if(this.foreignLand === false){
 			this.birthPlace = seed + " in a common barn";
 		} else {
 			this.birthPlace = foreignSeed + " in a common barn";
 		}
-		this.BirthMod += 1;
+		this.birthMod += 1;
 	}else if(ranBirthPlace === 12 || ranBirthPlace === 13){
 		if(this.foreignLand === false){
 			this.foreignLand = true;
-			this.BirthMod += 2;
+			this.birthMod += 2;
 			this.placeOfBirth110();
 		} else {
 		this.placeOfBirth110();
@@ -666,21 +666,21 @@ Character.prototype.placeOfBirth110 = function(){
 		} else {
 			this.birthPlace = foreignSeed + " in a cave";
 		}
-		this.BirthMod += 5;
+		this.birthMod += 5;
 	}else if(ranBirthPlace ===15){
 		if(this.foreignLand === false) {
 			this.birthPlace = seed + " in the middle of a field";
 		} else {
 			this.birthPlace = foreignSeed + " in the middle of a field";
 		}
-		this.BirthMod += 1;
+		this.birthMod += 1;
 	}else if(ranBirthPlace === 16){
 		if(this.foreignLand === false){
 			this.birthPlace = seed + " in a forest";
 		} else {
 			this.birthPlace = foreignSeed + " in a forest";
 		}
-		this.BirthMod += 2;
+		this.birthMod += 2;
 	}else if(ranBirthPlace > 16){
 		this.exoticBirth111();
 	}
@@ -692,7 +692,7 @@ Character.prototype.exoticBirth111 = function(){
 	switch(ranExoticBirth){
 		case 1:
 			this.birthPlace = this.charName + " was born in a temple of a good deity";
-			this.BirthMod += 15;
+			this.birthMod += 15;
             break;
         case 2:
 			var battleRan = Math.floor(Math.random() * (6 -1 + 1) + 1);
@@ -701,80 +701,79 @@ Character.prototype.exoticBirth111 = function(){
 			} else {
 				this.birthPlace = this.charName + " was born in a camp near a battlefield.";
 			}
-			this.BirthMod += 8;
+			this.birthMod += 8;
             break;
         case 3:
 			this.birthPlace = this.charName + " was born in an alley.";
-			this.BirthMod += 5;
+			this.birthMod += 5;
             break;
         case 4:
 			this.birthPlace = this.charName + " in a brothel.";
-			this.BirthMod += 2;
+			this.birthMod += 2;
             break;
         case 5:
 			this.birthPlace = this.charName + " was born in the palace of a local ruler.";
-			this.BirthMod += 2;
+			this.birthMod += 2;
             break;
         case 6:
 			this.birthPlace = this.charName + " was born in the palace of the ruler of " + this.possesivePronoun + " country.";
-			this.BirthMod += 5;
+			this.birthMod += 5;
             break;
         case 7:
 			this.birthPlace = this.charName + " was born in the palace of an evil person, ruler or creature.";
-			this.BirthMod += 15;
+			this.birthMod += 15;
             break;
         case 8:
 			this.birthPlace = this.charName + " was born in a bar, tavern, or ale house.";
-			this.BirthMod += 2;
+			this.birthMod += 2;
             break;
         case 9:
 			this.birthPlace = this.charName + " was born in the sewers.";
-			this.BirthMod += 10;
+			this.birthMod += 10;
             break;
         case 10:
 			this.birthPlace = this.charName + " was born in the theives den.";
-			this.BirthMod += 5;
+			this.birthMod += 5;
             break;
         case 11:
 			this.birthPlace = this.charName + " was born in the home of a friendly non-human.";
-			this.BirthMod += 2;
+			this.birthMod += 2;
             break;
         case 12:
 			this.birthPlace = this.charName + " was made by a powerful wizard. All memories of " + this.possesivePronoun + " memories are implanted by the wizard.";
-			this.BirthMod += 25;
+			this.birthMod += 25;
             break;
         case 13:
 			this.birthPlace = this.charName + " was born in the temple of an evil diety";
-			this.BirthMod += 20;
+			this.birthMod += 20;
             break;
         case 14:
 			this.birthPlace = this.charName + " was born on another plane of reality, and transported to this world sometime soon after birth";
-			this.BirthMod += 15;
+			this.birthMod += 15;
             break;
         case 15:
 			this.birthPlace = this.charName + " was born in another time period, then transported to this time sometime after birth.";
-			this.BirthMod += 10;
+			this.birthMod += 10;
             break;
         case 16:
-			this.birthPlace = this.charName + " was on a ship at sea.";
-			this.BirthMod += 2;
+			this.birthPlace = this.charName + " was born on a ship at sea.";
+			this.birthMod += 2;
             break;
         case 17:
-			this.birthPlace = this.charName + " in a prison cell.";
-			this.BirthMod += 9;
+			this.birthPlace = this.charName + " was born in a prison cell.";
+			this.birthMod += 9;
             break;
         case 18:
 			this.birthPlace = this.charName + " was born in a wizard's laboratory.";
-			this.BirthMod += 20;
+			this.birthMod += 20;
             break;
 	}
-	this.unusualBirth112();
 };
 
 Character.prototype.unusualBirth112 = function(){
-	var unusualBirth = (Math.floor(Math.random() * (100 -1 + 1) + 1) + this.BirthMod);
+	var unusualBirth = (Math.floor(Math.random() * (100 -1 + 1) + 1) + this.birthMod);
 	if(unusualBirth < 61){
-		this.significantChildhoodEvents215();
+		this.birthEvent.push(this.charName + " had an uneventful birth.");
 	} else if (unusualBirth < 77 && unusualBirth > 60){
 		this.unusualBirthEvents113(0);
 	} else if(unusualBirth < 93 && unusualBirth > 76){
@@ -790,6 +789,7 @@ Character.prototype.unusualBirth112 = function(){
 			this.unusualBirthEvents113(0);
 		}
 	}
+	this.significantChildhoodEvents215();
 };
 
 Character.prototype.unusualBirthEvents113 = function(bonus){
@@ -895,9 +895,9 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 			this.birthEvent.push("A goose laid a golden egg. " + this.charName + " still has the egg to this day. The egg is magical!");
 		}
 	} else if (birthEvent < 54 && birthEvent > 50){
-		if(bornAtDay === true){
+		if(this.bornAtDay === true){
 			this.birthEvent.push("The sky darkened in a solar eclipse when "+this.charName +" was born.");
-		} else if (bornAtNight === true){
+		} else if (this.bornAtNight === true){
 			this.birthEvent.push("The moon and stars darkened when " + this.charName + " was born.");
 		} else {
 			var nightDay = Math.floor(Math.random() * (2 -1 +1)+1);
@@ -912,40 +912,116 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 	} else if (birthEvent === 54 || birthEvent === 55){
 		this.birthEvent.push(this.charName + "'s house was infested with poisonous snakes the day after " + this.possesivePronoun + " birth.");
 	} else if (birthEvent === 56){
-
+		this.birthEvent.push("All the gold in " + this.charName + "'s house turned into lead.");
 	} else if (birthEvent === 57){
-
+		this.birthEvent.push("All the metal in " + this.charName + "'s house turned into precious metals.");
 	} else if (birthEvent < 63 && birthEvent > 57){
-
+		this.adopted = true;
+		this.birthEvent.push("As an infant " + this.charName + " was left to die on a hillside by " + this.possesivePronoun + " natural parents. " + this.subjectivePronoun.capitalizeFirstLetter() + " was found and raised by an adoptive family.");
 	} else if (birthEvent === 63 || birthEvent === 64){
-
+		this.tragedies528('birthEvent');
 	} else if (birthEvent < 70 && birthEvent > 64){
-
+		this.birthMark866('birthEvent');
 	} else if (birthEvent < 76 && birthEvent > 69){
-
+		this.curses868('birthEvent');
 	} else if (birthEvent < 82 && birthEvent > 75){
-
+		this.blessings869('birthEvent');
 	} else if (birthEvent < 86 && birthEvent > 81){
-
+		var sisOrBro = Math.floor(Math.random() * (2 - 1 + 1) +1);
+		if(sisOrBro === 1){
+			this.birthEvent.push(this.charName + " was born with a fraternal twin sister");
+			this.generateNPC('sister');
+		} else {
+			this.birthEvent.push(this.charName + " was born with a fraternal twin brother");
+			this.generateNPC('brother');
+		}
 	} else if (birthEvent === 86){
-
+		this.birthEvent.push(this.charName + " is one of a set of identical triplets.");
+		for (i = 0; i < 3; i++){
+			if(this.charGender === "Male"){
+				this.generateNPC('brother');
+			} else {
+				this.generateNPC('sister');
+			}
+		}
 	} else if (birthEvent === 87 || birthEvent === 88){
-
+		this.deathSituations545('birthEvent');
 	} else if (birthEvent < 94 && birthEvent > 89){
-
+		this.physicalAfflctions874('birthEvent');
 	} else if (birthEvent === 94){
-
+		var numPsychicPower = Math.floor(Math.random() * (3 - 1 + 1) +1);
+		for(i = 0; i<numPsychicPower; i++){
+			this.psychicAbilities873('birthEvent');
+		}
 	} else if (birthEvent < 100 && birthEvent > 96){
-
+		this.giftsAndLegacies863('birthEvent');
 	} else if (birthEvent === 100){
 		for (i = 0; i < 2; i++){
 			this.unusualBirthEvents113(20);
 		}
 	} else if (birthEvent < 106 && birthEvent > 100){
-
+		this.birthEvent.push(this.charName + "'s mother was reputed to be a virgin. No reasonable explanation was ever given for this. Others who learn of this treat the character as a mystic, healer, or champion against evil.");
 	} else if (birthEvent < 111 && birthEvent > 105){
-
+		this.birthEvent.push(this.charName + " is the offspring of a mortal and a demon. Those that know this fact will more than likely shun or even seek to destroy " + this.objectivePronoun + ".");
+		for(i = 0; i < 6; i++){
+			var d6 = Math.floor(Math.random() * (6 - 1 + 1) +1);
+			var amount = Math.floor(Math.random() * (3 - 1 + 1) +1);
+			if(i === 1){
+				if(d6 > 0 && d6 < 5){
+					this.strength += amount;
+				} else {
+					this.strength -= amount;
+				}
+			}
+			if(i === 2){
+				if(d6 > 0 && d6 < 5){
+					this.dextarity += amount;
+				} else {
+					this.dextarity -= amount;
+				}
+			}
+			if(i === 3){
+				if(d6 > 0 && d6 < 5){
+					this.consitution += amount;
+				} else {
+					this.consitution -= amount;
+				}
+			}
+			if(i === 4){
+				if(d6 > 0 && d6 < 5){
+					this.intelligence += amount;
+				} else {
+					this.intelligence -= amount;
+				}
+			}
+			if(i === 5){
+				if(d6 > 0 && d6 < 5){
+					this.wisdom += amount;
+				} else {
+					this.wisdom -= amount;
+				}
+			}
+			if(i === 6){
+				if(d6 > 0 && d6 < 5){
+					this.charisma += amount;
+				} else {
+					this.charisma -= amount;
+				}
+			}
+		}
+		this.physicalAfflctions874('demonBirth');
+		this.curses868('demonBirth');
+		this.darksideTrait648();
 	} else if (birthEvent > 110){
-
+		this.deities864('birthEvent');
+		this.physicalAfflctions874('godChild');
+		this.giftsAndLegacies863('godChild');
+		this.blessings869('godChild');
+		this.strength += 3;
+		this.dextarity += 3;
+		this.consitution += 3;
+		this.intelligence += 3;
+		this.wisdom += 3;
+		this.charisma += 3;
 	}
 };

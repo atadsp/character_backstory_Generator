@@ -47,6 +47,13 @@ function Character(){
 	//literacy
 	this.nativeLiteracy = 0;
 	this.foreignLiteracy = [];
+	//attributes 
+	this.strength = 0;
+	this.dextarity = 0;
+	this.consitution = 0;
+	this.intelligence = 0;
+	this.wisdom = 0;
+	this.charisma = 0;
 	//skill ranks
 	this.weaponRank = 0;
 	this.meleeWeaponRank = 0;
@@ -65,6 +72,14 @@ function Character(){
 	this.attributeBonus = [];
 	this.specialBonus = [];
 	this.naturalArmorBonus = 0;
+	//occupation
+	this.occupation = "";
+	this.hobby = "";
+	//traits
+	this.lightSideTraits = [];
+	this.darkSideTraits = [];
+	this.exoticTraits = [];
+	this.neutralTraits = [];
 }
 var player = new Character();
 
@@ -108,6 +123,14 @@ Character.prototype.generateCharacter = function(){
 	this.stealthRank = 0;
 	this.bornAtNight = false;
 	this.bornAtDay = false;
+	this.strength = 0;
+	this.dextarity = 0;
+	this.consitution = 0;
+	this.intelligence = 0;
+	this.wisdom = 0;
+	this.charisma = 0;
+	this.occupation = "";
+	this.hobby = "";
 	this.charName = $("#charName").val();
 	this.isPlayerCharacter = true;
 	this.setGender();
@@ -116,7 +139,8 @@ Character.prototype.generateCharacter = function(){
 Character.prototype.postChar = function(){
 	if (this.isPlayerCharacter === true){
 $( "#characterInfo" ).empty();
-$( "#characterInfo" ).append( "<br> <div id='name'>Name: " + this.charName + "</div>" );
+$( "#birthEvent").empty();
+$( "#characterInfo" ).append( "<div id='name'>Name: " + this.charName + "</div>" );
 $( "#characterInfo" ).append( "<div id='gender'>Gender: " + this.charGender + "</div>" );
 $( "#characterInfo" ).append( "<div id='race'>Race: " + this.charRace + "</div>" );
 $( "#characterInfo" ).append( "<div id='culture'>Culture: " + this.charCulture + "</div>" );
@@ -138,6 +162,9 @@ if(this.isBastard === true){
 }
 if(this.adopted === true){
 	$("#characterInfo").append("<br><div id='adopted'>Adopted: " + this.charName + " was adopted by " + this.possesivePronoun + " current family</div>");
+}
+for(i = 0; i < this.birthEvent.length; i++){
+	$("#birthEvent").append("<div class='bevent'>" + this.birthEvent[i] + "</div>");
 }
 }
 };
