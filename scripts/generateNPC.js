@@ -92,17 +92,17 @@ Character.prototype.npcOccupation114a = function(){
 		var gmSecret = "";
 		var reasonGM = Math.floor(Math.random() * (6 -1 + 1) + 1);
 		if(reasonGM === 1){
-			gmSecret =  npc.possesivePronoun + " has an adventurer's hoard of gold and treasure.";
+			gmSecret =  npc.possesivePronoun.capitalizeFirstLetter() + " has an adventurer's hoard of gold and treasure.";
 		} else if (reasonGM === 2){
-			gmSecret =  npc.subjectivePronoun + " is secretely a thief. " + this.possesivePronoun + " income comes from stealing.";
+			gmSecret =  npc.subjectivePronoun.capitalizeFirstLetter() + " is secretely a thief. " + this.possesivePronoun + " income comes from stealing.";
 		} else if (reasonGM === 3){
-			gmSecret =  npc.possesivePronoun + "'s money comes from a secret inheritance.";
+			gmSecret =  npc.possesivePronoun.capitalizeFirstLetter() + "'s money comes from a secret inheritance.";
 		} else if (reasonGM === 4){
-			gmSecret =  npc.possesivePronoun + " discovered a lost treasure and loots it as needed.";
+			gmSecret =  npc.possesivePronoun.capitalizeFirstLetter() + " discovered a lost treasure and loots it as needed.";
 		} else if (reasonGM === 5){
-			gmSecret =  npc.possesivePronoun + " recieves money from investments.";
+			gmSecret =  npc.possesivePronoun.capitalizeFirstLetter() + " recieves money from investments.";
 		} else if (reasonGM === 6) {
-			gmSecret =  npc.possesivePronoun + " couterfeits money, even making fake gold.";
+			gmSecret =  npc.possesivePronoun.capitalizeFirstLetter() + " couterfeits money, even making fake gold.";
 		}
 		npc.occupation = npc.charName + " does not have regular work. " + gmSecret;
 	}
@@ -110,8 +110,21 @@ Character.prototype.npcOccupation114a = function(){
 	for(i=0; i<ranNote; i++){
 	npc.noteworthyItems114b();
 	}
+	npc.postNPC();
 };
 
 Character.prototype.noteworthyItems114b = function(){
 
+};
+
+Character.prototype.postNPC = function(){
+$( "#npcInfo" ).append( "<br><div class='npcname'>Name: " + npc.charName + "</div>" );
+$( "#npcInfo" ).append( "<div class='npcgender'>Gender: " + npc.charGender + "</div>" );
+$( "#npcInfo" ).append( "<div class='npcrace'>Race: " + npc.charRace + "</div>" );
+$( "#npcInfo" ).append( "<div class='npcculture'>Culture: " + npc.charCulture + "</div>" );
+$( "#npcInfo" ).append( "<div class='npcenviroment'>Enviroment: " + npc.charEnviroment + "</div>" );
+$( "#npcInfo" ).append( "<div class='social'>Social Status: " + npc.charSocial + "</div>" );
+if(npc.isNoble === true && npc.isOrphan === false){
+	$("#npcInfo").append( "<div class='npcnoble'>Noble Title: " + npc.nobleTitle + "</div>" );
+}
 };

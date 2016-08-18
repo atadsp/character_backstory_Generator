@@ -39,6 +39,7 @@ function Character(){
 	this.birthMonth = "";
 	this.birthPlace ="";
 	this.birthEvent = [];
+	this.birthEventNum = [];
 	this.birthMod = 0;
 	this.foreignLand = false;
 	this.hasbonus = false;
@@ -84,6 +85,7 @@ function Character(){
 var player = new Character();
 
 Character.prototype.generateCharacter = function(){
+	$( "#npcInfo").empty();
 	this.charCultMod = 0;
 	this.charSocMod = 0;
 	this.isNoble = false;
@@ -131,6 +133,7 @@ Character.prototype.generateCharacter = function(){
 	this.charisma = 0;
 	this.occupation = "";
 	this.hobby = "";
+	this.birthEventNum.length = 0;
 	this.charName = $("#charName").val();
 	this.isPlayerCharacter = true;
 	this.setGender();

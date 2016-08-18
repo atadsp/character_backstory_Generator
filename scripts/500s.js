@@ -6,14 +6,14 @@ if(eventchain === 'birthEvent'){
 }
 };
 
+Character.prototype.underworld534  = function(){
+	console.log('bad boy');
+};
+
 Character.prototype.deathSituations545 = function(eventchain){
 	var deathSituation = '';
 	console.log('death event');
 if(eventchain === 'birthEvent'){
 	this.birthEvent.push("An old hag prophesies " + this.charName + "'s death." + deathSituation);
 }
-};
-
-Character.prototype.underworld534  = function(){
-	console.log('bad boy');
 };

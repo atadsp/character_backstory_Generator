@@ -17,7 +17,7 @@ Character.prototype.birthMark866 = function(eventchain){
 	}
 };
 
-Character.prototype.curse868 = function(eventchain){
+Character.prototype.curses868 = function(eventchain){
 	console.log('oh no a curse!');
 	var curse = '';
 	if(eventchain === 'birthEvent'){

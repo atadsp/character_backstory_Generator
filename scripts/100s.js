@@ -257,7 +257,11 @@ Character.prototype.bastardReason105 = function (){
 	reasonChance += this.charCultMod;
 	if (reasonChance < 12){
 		this.bastardReason = "Bastard: " + this.charName + "'s mother was a common unmarried prostitute.";
-		this.family106();
+		if(this.isPlayerCharacter === true){
+			this.family106();
+		} else if(this.isPlayerCharacter === false){
+			this.npcOccupation114a();
+		}
 	} else if (reasonChance === 13 || reasonChance === 14){
 		this.bastardReason = "Bastard: " + this.charName + "'s mother was raped and remained unmarried.";
 		this.fatherKnown105(15);
@@ -293,7 +297,6 @@ Character.prototype.family106 = function (){
 			this.generateNPC('father');
 			this.siblings107();
 		}
-
 	} else if(familyRan < 10 && familyRan > 8){
 		if(this.isBastard === true && this.isFatherKnown === false && this.adopted === false){
 			this.family106();
@@ -337,9 +340,7 @@ Character.prototype.family106 = function (){
 
 			}
 			this.siblings107();
-
 		}
-
 	} else if(familyRan === 13){
 		this.generateNPC('grandmother');
 		this.generateNPC('grandfather');
@@ -354,11 +355,9 @@ Character.prototype.family106 = function (){
 			this.generateNPC('grandfather');
 			this.TimeofBirth109();
 		}
-
 	} else if(familyRan === 15){
 		this.generateNPC('aunt');
 		this.generateNPC('uncle');
-
 	} else if(familyRan === 16){
 		var auntOrUncle = Math.floor(Math.random() * (2 -1 + 1) + 1);
 		if(auntOrUncle === 1){
@@ -367,11 +366,9 @@ Character.prototype.family106 = function (){
 			this.generateNPC('uncle');
 		}
 		this.TimeofBirth109();
-
 	} else if(familyRan === 17 || familyRan ===18){
 			this.generateNPC('mother');
 			this.siblings107();
-
 	} else if(familyRan === 19){
 		if(this.isBastard === true && this.isFatherKnown === false && this.adopted === false){
 			this.family106();
@@ -379,7 +376,6 @@ Character.prototype.family106 = function (){
 			this.generateNPC('father');
 			this.siblings107();
 		}
-
 	} else if(familyRan === 20){
 		if(this.adopted === false){
 		this.isOrphan = true;
@@ -413,7 +409,6 @@ Character.prototype.family106 = function (){
 		} else {
 			this.family106();
 		}
-
 	} else if(familyRan > 24){
 		if(this.adopted ===false){
 			this.charSocMod = -1;
@@ -434,9 +429,20 @@ Character.prototype.family106 = function (){
 	}
 };
 
+
+
+
+
+
+
+
+// infinite loop somewhere in 107 and generatenpc.js
 Character.prototype.siblings107 = function(){
 	var siblingRan = Math.floor(Math.random() * (20 -1 + 1) + 1);
 	var numSiblings = Math.floor(Math.random() * (3 -1 + 1) + 1);
+	var numSiblingsTwo = Math.floor(Math.random() * (6 -3 + 1) + 3);
+	var	numSiblingsThree = Math.floor(Math.random() * (8 - 2 + 1) + 2);
+	var numBastardSiblings = Math.floor(Math.random() * (3 -1 + 1) + 1);
 	if(siblingRan < 3){
 		if(this.bastardSiblings < 1){
 		this.wealth += 0.3;
@@ -446,7 +452,6 @@ Character.prototype.siblings107 = function(){
 		}
 	} else if(siblingRan <10 && siblingRan >2){
 		for(i = 0; i < numSiblings; i++){
-			var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
 			if(siblingGender === 1){
 				this.generateNPC('sister');
 				this.siblingNum ++;
@@ -455,9 +460,7 @@ Character.prototype.siblings107 = function(){
 				this.siblingNum ++;
 			}
 		}
-		this.birthOrder108();
 	} else if(siblingRan < 16 && siblingRan > 9){
-		numSiblings++;
 		for(i = 0; i < numSiblings; i++){
 			var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
 			if(siblingGender === 1){
@@ -468,10 +471,8 @@ Character.prototype.siblings107 = function(){
 				this.siblingNum ++;
 			}
 		}
-		this.birthOrder108();
 	} else if(siblingRan < 18 && siblingRan > 15){
-		numSiblings = Math.floor(Math.random() * (6 -3 + 1) + 3);
-		for(i = 0; i < numSiblings; i++){
+		for(i = 0; i < numSiblingsTwo; i++){
 			var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
 			if(siblingGender === 1){
 				this.generateNPC('sister');
@@ -481,10 +482,8 @@ Character.prototype.siblings107 = function(){
 				this.siblingNum ++;
 			}
 		}
-		this.birthOrder108();
 	} else if(siblingRan < 20 && siblingRan > 17){
-		numSiblings = Math.floor(Math.random() * (8 - 2 + 1) + 2);
-		for(i = 0; i < numSiblings; i++){
+		for(i = 0; i < numSiblingsThree; i++){
 			var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
 			if(siblingGender === 1){
 				this.generateNPC('sister');
@@ -494,10 +493,8 @@ Character.prototype.siblings107 = function(){
 				this.siblingNum ++;
 			}
 		}
-		this.birthOrder108();
 	} else if(siblingRan > 19){
-		var numBastardSiblings = Math.floor(Math.random() * (3 -1 + 1) + 1);
-		for(i = 0; i < numSiblings; i++){
+		for(i = 0; i < numBastardSiblings; i++){
 			var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
 			if(siblingGender === 1){
 				this.generateNPC('bastard sister');
@@ -509,7 +506,15 @@ Character.prototype.siblings107 = function(){
 		}
 		this.siblings107();
 	}
+	this.birthOrder108();
 };
+
+
+
+
+
+
+
 
 Character.prototype.birthOrder108 = function(){
 	this.totalSibling = this.bastardSiblings + this.siblingNum;
@@ -772,7 +777,7 @@ Character.prototype.exoticBirth111 = function(){
 
 Character.prototype.unusualBirth112 = function(){
 	var unusualBirth = (Math.floor(Math.random() * (100 -1 + 1) + 1) + this.birthMod);
-	if(unusualBirth < 61){
+	if(unusualBirth < 61 && this.birthEvent.length === 0){
 		this.birthEvent.push(this.charName + " had an uneventful birth.");
 	} else if (unusualBirth < 77 && unusualBirth > 60){
 		this.unusualBirthEvents113(0);
@@ -794,19 +799,26 @@ Character.prototype.unusualBirth112 = function(){
 
 Character.prototype.unusualBirthEvents113 = function(bonus){
 	var birthEvent = (Math.floor(Math.random() * (100 -1 + 1) + 1) + bonus);
-	if(birthEvent < 6){
+	if(birthEvent < 6 && ($.inArray(1, this.birthEventNum) === -1)){
+		this.birthEventNum.push(1);
 		this.birthEvent.push('A person of note in the vicinity of ' + this.charName + "'s house died on the day that " + this.subjectivePronoun + " was born. Some blame " + this.objectivePronoun + " for the death, and other view " + this.objectivePronoun + " as a reincanation of the deceased.");
-	} else if (birthEvent < 11 && birthEvent > 5){
+	} else if (birthEvent < 11 && birthEvent > 5 && ($.inArray(2, this.birthEventNum) === -1)){
+		this.birthEventNum.push(2);
 		this.birthEvent.push('Wolves and dogs set up a howling at the exact moment of ' + this.charName + "'s birth");
-	} else if (birthEvent < 21 && birthEvent > 10){
+	} else if (birthEvent < 21 && birthEvent > 10 && ($.inArray(3, this.birthEventNum) === -1)){
+		this.birthEventNum.push(3);
 		this.birthEvent.push(this.charName + "'s mother died during childbirth.");
-	} else if (birthEvent < 24 && birthEvent > 20){
+	} else if (birthEvent < 24 && birthEvent > 20 && ($.inArray(4, this.birthEventNum) === -1)){
+		this.birthEventNum.push(4);
 		this.birthEvent.push('All of the glassware in the house suddenly shattered.');
-	} else if (birthEvent === 24 || birthEvent === 25){
+	} else if (birthEvent === 24 || birthEvent === 25 && ($.inArray(5, this.birthEventNum) === -1)){
+		this.birthEventNum.push(5);
 		this.birthEvent.push('All of the milk in the area near ' + this.charName + 'went sour at the moment of ' + this.objectivePronoun + "'s birth.");
-	} else if (birthEvent === 26 || birthEvent === 27){
+	} else if (birthEvent === 26 || birthEvent === 27 && ($.inArray(6, this.birthEventNum) === -1)){
+		this.birthEventNum.push(6);
 		this.birthEvent.push(this.charName + "'s father beleived that " + this.subjectivePronoun + " was not his child, but instead the child of another man.");
-	} else if (birthEvent < 32 && birthEvent > 27){
+	} else if (birthEvent < 32 && birthEvent > 27 && ($.inArray(7, this.birthEventNum) === -1)){
+		this.birthEventNum.push(7);
 		var seperated = Math.floor(Math.random() * (5 -1 + 1) + 1);
 		var evilTwin = Math.floor(Math.random() * (6 - 1 + 1)+1);
 		if(seperated === 5){
@@ -822,18 +834,22 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 				this.birthEvent.push(this.charName + " has an identical twin.");
 			}
 		}
-	} else if (birthEvent < 35 && birthEvent > 31){
+	} else if (birthEvent < 35 && birthEvent > 31 && ($.inArray(8, this.birthEventNum) === -1)){
+		this.birthEventNum.push(8);
 		var boilOrFreeze = Math.floor(Math.random() * (2 -1 + 1) + 1);
 		if(boilOrFreeze === 1){
 			this.birthEvent.push('Near by water froze by itself.');
 		} else {
 			this.birthEvent.push('Near by water boiled by itself.');
 		}
-	} else if (birthEvent < 38 && birthEvent > 34){
+	} else if (birthEvent < 38 && birthEvent > 34 && ($.inArray(9, this.birthEventNum) === -1)){
+		this.birthEventNum.push(9);
 		this.birthEvent.push("On the day of " + this.charName + "'s birth there was seasonally unnatural weather");
-	} else if (birthEvent === 38){
+	} else if (birthEvent === 38 && ($.inArray(10, this.birthEventNum) === -1)){
+		this.birthEventNum.push(10);
 		this.birthEvent.push("On the day of " + this.charName + "'s birth unnaturally potent storms raged.");
-	} else if (birthEvent < 42 && birthEvent > 38){
+	} else if (birthEvent < 42 && birthEvent > 38 && ($.inArray(11, this.birthEventNum) === -1)){
+		this.birthEventNum.push(11);
 		if(this.bornAtNight === false && this.bornAtDay === false){
 			this.bornAtNight = true;
 			nightBonus = Math.floor(Math.random() * (10 -1 + 1) + 1);
@@ -857,7 +873,8 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 			} else {
 				this.unusualBirthEvents113(bonus);
 			}
-	} else if (birthEvent < 45 && birthEvent > 41){
+	} else if (birthEvent < 45 && birthEvent > 41 && ($.inArray(12, this.birthEventNum) === -1)){
+		this.birthEventNum.push(12);
 		if(this.bornAtNight === false && this.bornAtDay === false){
 			this.bornAtDay = true;
 			dayBonus = Math.floor(Math.random() * (10 -1 + 1) + 1);
@@ -882,10 +899,12 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 		} else {
 			this.unusualBirthEvents113(bonus);
 		}
-	} else if (birthEvent < 49 && birthEvent > 45){
+	} else if (birthEvent < 49 && birthEvent > 45 && ($.inArray(13, this.birthEventNum) === -1)){
+		this.birthEventNum.push(13);
 		this.birthEvent.push("A seer declares that " + this.charName + " will be afflicted by an acient family curse");
-		this.curse868();
-	} else if (birthEvent === 49 || birthEvent === 50){
+		this.curses868();
+	} else if (birthEvent === 49 || birthEvent === 50 && ($.inArray(14, this.birthEventNum) === -1)){
+		this.birthEventNum.push(14);
 		gooseEgg = Math.floor(Math.random() * (10 -1 + 1) + 1);
 		if(gooseEgg < 7){
 			this.birthEvent.push("A goose laid a golden egg. " + this.charName + " no longer has the egg.");
@@ -894,7 +913,8 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 		} else if(gooseEgg === 10){
 			this.birthEvent.push("A goose laid a golden egg. " + this.charName + " still has the egg to this day. The egg is magical!");
 		}
-	} else if (birthEvent < 54 && birthEvent > 50){
+	} else if (birthEvent < 54 && birthEvent > 50 && ($.inArray(15, this.birthEventNum) === -1)){
+		this.birthEventNum.push(15);
 		if(this.bornAtDay === true){
 			this.birthEvent.push("The sky darkened in a solar eclipse when "+this.charName +" was born.");
 		} else if (this.bornAtNight === true){
@@ -909,24 +929,33 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 				this.birthEvent.push("The moon and stars darkened when " + this.charName + " was born.");
 			}
 		}
-	} else if (birthEvent === 54 || birthEvent === 55){
+	} else if (birthEvent === 54 || birthEvent === 55 && ($.inArray(16, this.birthEventNum) === -1)){
+		this.birthEventNum.push(16);
 		this.birthEvent.push(this.charName + "'s house was infested with poisonous snakes the day after " + this.possesivePronoun + " birth.");
-	} else if (birthEvent === 56){
+	} else if (birthEvent === 56 && ($.inArray(17, this.birthEventNum) === -1)){
+		this.birthEventNum.push(17);
 		this.birthEvent.push("All the gold in " + this.charName + "'s house turned into lead.");
-	} else if (birthEvent === 57){
+	} else if (birthEvent === 57 && ($.inArray(18, this.birthEventNum) === -1)){
+		this.birthEventNum.push(18);
 		this.birthEvent.push("All the metal in " + this.charName + "'s house turned into precious metals.");
-	} else if (birthEvent < 63 && birthEvent > 57){
+	} else if (birthEvent < 63 && birthEvent > 57 && ($.inArray(19, this.birthEventNum) === -1)){
+		this.birthEventNum.push(19);
 		this.adopted = true;
 		this.birthEvent.push("As an infant " + this.charName + " was left to die on a hillside by " + this.possesivePronoun + " natural parents. " + this.subjectivePronoun.capitalizeFirstLetter() + " was found and raised by an adoptive family.");
-	} else if (birthEvent === 63 || birthEvent === 64){
+	} else if (birthEvent === 63 || birthEvent === 64 && ($.inArray(20, this.birthEventNum) === -1)){
+		this.birthEventNum.push(20);
 		this.tragedies528('birthEvent');
-	} else if (birthEvent < 70 && birthEvent > 64){
+	} else if (birthEvent < 70 && birthEvent > 64 && ($.inArray(21, this.birthEventNum) === -1)){
+		this.birthEventNum.push(21);
 		this.birthMark866('birthEvent');
-	} else if (birthEvent < 76 && birthEvent > 69){
+	} else if (birthEvent < 76 && birthEvent > 69 && ($.inArray(22, this.birthEventNum) === -1)){
+		this.birthEventNum.push(22);
 		this.curses868('birthEvent');
-	} else if (birthEvent < 82 && birthEvent > 75){
+	} else if (birthEvent < 82 && birthEvent > 75 && ($.inArray(23, this.birthEventNum) === -1)){
+		this.birthEventNum.push(23);
 		this.blessings869('birthEvent');
-	} else if (birthEvent < 86 && birthEvent > 81){
+	} else if (birthEvent < 86 && birthEvent > 81 && ($.inArray(24, this.birthEventNum) === -1)){
+		this.birthEventNum.push(24);
 		var sisOrBro = Math.floor(Math.random() * (2 - 1 + 1) +1);
 		if(sisOrBro === 1){
 			this.birthEvent.push(this.charName + " was born with a fraternal twin sister");
@@ -935,7 +964,8 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 			this.birthEvent.push(this.charName + " was born with a fraternal twin brother");
 			this.generateNPC('brother');
 		}
-	} else if (birthEvent === 86){
+	} else if (birthEvent === 86 && ($.inArray(25, this.birthEventNum) === -1)){
+		this.birthEventNum.push(25);
 		this.birthEvent.push(this.charName + " is one of a set of identical triplets.");
 		for (i = 0; i < 3; i++){
 			if(this.charGender === "Male"){
@@ -944,24 +974,31 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 				this.generateNPC('sister');
 			}
 		}
-	} else if (birthEvent === 87 || birthEvent === 88){
+	} else if (birthEvent === 87 || birthEvent === 88 && ($.inArray(26, this.birthEventNum) === -1)){
+		this.birthEventNum.push(26);
 		this.deathSituations545('birthEvent');
-	} else if (birthEvent < 94 && birthEvent > 89){
+	} else if (birthEvent < 94 && birthEvent > 89 && ($.inArray(27, this.birthEventNum) === -1)){
+		this.birthEventNum.push(27);
 		this.physicalAfflctions874('birthEvent');
-	} else if (birthEvent === 94){
+	} else if (birthEvent === 94 && ($.inArray(28, this.birthEventNum) === -1)){
+		this.birthEventNum.push(28);
 		var numPsychicPower = Math.floor(Math.random() * (3 - 1 + 1) +1);
 		for(i = 0; i<numPsychicPower; i++){
 			this.psychicAbilities873('birthEvent');
 		}
-	} else if (birthEvent < 100 && birthEvent > 96){
+	} else if (birthEvent < 100 && birthEvent > 96 && ($.inArray(29, this.birthEventNum) === -1)){
+		this.birthEventNum.push(29);
 		this.giftsAndLegacies863('birthEvent');
-	} else if (birthEvent === 100){
+	} else if (birthEvent === 100 && ($.inArray(30, this.birthEventNum) === -1)){
+		this.birthEventNum.push(30);
 		for (i = 0; i < 2; i++){
 			this.unusualBirthEvents113(20);
 		}
-	} else if (birthEvent < 106 && birthEvent > 100){
+	} else if (birthEvent < 106 && birthEvent > 100 && ($.inArray(31, this.birthEventNum) === -1)){
+		this.birthEventNum.push(31);
 		this.birthEvent.push(this.charName + "'s mother was reputed to be a virgin. No reasonable explanation was ever given for this. Others who learn of this treat the character as a mystic, healer, or champion against evil.");
-	} else if (birthEvent < 111 && birthEvent > 105){
+	} else if (birthEvent < 111 && birthEvent > 105 && ($.inArray(32, this.birthEventNum) === -1)){
+		this.birthEventNum.push(32);
 		this.birthEvent.push(this.charName + " is the offspring of a mortal and a demon. Those that know this fact will more than likely shun or even seek to destroy " + this.objectivePronoun + ".");
 		for(i = 0; i < 6; i++){
 			var d6 = Math.floor(Math.random() * (6 - 1 + 1) +1);
@@ -1012,7 +1049,8 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 		this.physicalAfflctions874('demonBirth');
 		this.curses868('demonBirth');
 		this.darksideTrait648();
-	} else if (birthEvent > 110){
+	} else if (birthEvent > 110 && ($.inArray(33, this.birthEventNum) === -1)){
+		this.birthEventNum.push(33);
 		this.deities864('birthEvent');
 		this.physicalAfflctions874('godChild');
 		this.giftsAndLegacies863('godChild');
@@ -1023,5 +1061,7 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 		this.intelligence += 3;
 		this.wisdom += 3;
 		this.charisma += 3;
+	} else {
+		this.unusualBirthEvents113(bonus);
 	}
 };
