@@ -9,3 +9,7 @@ Character.prototype.darksideTrait648 = function(){
 Character.prototype.exoticPersonalityTrait649 = function(){
 	console.log("This dude is exotic");
 };
+
+Character.prototype.mentalAfflictions649b = function(){
+	console.log("This dude is mental");
+};

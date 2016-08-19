@@ -142,10 +142,10 @@ Character.prototype.social103 = function(){
 		}
 		//Civilized and Decadent desitute characters have a chance for an underworld experience
 		if (this.charCulture === "Civilized" && undwldexp <5){
-			this.underworld534();
+			this.underworld534('civilized');
 		}
 		if (this.charCulture === "Civilized-Decadent" && undwldexp < 7 ){
-			this.underworld534();
+			this.underworld534('civilized');
 		}
 	} else if(ransoc < 41 && ransoc > 12){
 		this.charSocMod += -1;
@@ -799,10 +799,10 @@ Character.prototype.unusualBirth112 = function(){
 	var adultran = Math.floor(Math.random() * (3 -1 + 1) + 1);
 	var adoran = Math.floor(Math.random() * (3 -1 + 1) + 1);
 	for(i = 0; i< childran; i++){
-		this.significantChildhoodEvents215('childhood');
+		this.significantChildhoodEvents215('childhood', this.charSocMod);
 	}
 	for(i = 0; i< adoran; i++){
-		this.significantChildhoodEvents215('adolescent');
+		this.significantChildhoodEvents215('adolescent', this.charSocMod);
 	}
 	for(i = 0; i< adultran; i++){
 		this.significantAdultEvents217();
@@ -915,7 +915,7 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 	} else if (birthEvent < 49 && birthEvent > 45 && ($.inArray(13, this.birthEventNum) === -1)){
 		this.birthEventNum.push(13);
 		this.birthEvent.push("A seer declares that " + this.charName + " will be afflicted by an acient family curse");
-		this.curses868();
+		this.curses868('birthEvent');
 	} else if (birthEvent === 49 || birthEvent === 50 && ($.inArray(14, this.birthEventNum) === -1)){
 		this.birthEventNum.push(14);
 		gooseEgg = Math.floor(Math.random() * (10 -1 + 1) + 1);

@@ -45,6 +45,12 @@ function Character(){
 	this.hasbonus = false;
 	this.bornAtNight = false;
 	this.bornAtDay = false;
+	//childhood
+	this.childAgeEvent = [];
+	this.childEvent = [];
+	//adolecent 
+	this.adolecentEventAge = [];
+	this.adolecentEvent = [];
 	//literacy
 	this.nativeLiteracy = 0;
 	this.foreignLiteracy = [];
@@ -81,6 +87,11 @@ function Character(){
 	this.darkSideTraits = [];
 	this.exoticTraits = [];
 	this.neutralTraits = [];
+	this.randomTraits = [];
+	this.traits = [];
+	this.traitStrength = [];
+	//other stuff
+	this.loverDeath = false;
 	//npc stuff
 	this.note = [];
 }
@@ -135,6 +146,10 @@ Character.prototype.generateCharacter = function(){
 	this.charisma = 0;
 	this.occupation = "";
 	this.hobby = "";
+	this.childAgeEvent.length = 0;
+	this.childEvent.length = 0;
+	this.adolecentEventAge.length = 0;
+	this.adolecentEvent.length = 0;
 	this.birthEventNum.length = 0;
 	this.charName = $("#charName").val();
 	this.isPlayerCharacter = true;

@@ -217,7 +217,6 @@ Character.prototype.noteworthyItems114b = function(){
 };
 
 Character.prototype.postNPC = function(){
-$( "#npcInfo" ).append("<hr>");
 $( "#npcInfo" ).append( "<div class='npcname'>Name: " + npc.charName + "</div>" );
 $( "#npcInfo" ).append( "<div class='npcgender'>Gender: " + npc.charGender + "</div>" );
 $( "#npcInfo" ).append( "<div class='npcrace'>Race: " + npc.charRace + "</div>" );
@@ -231,4 +230,5 @@ $("#npcInfo").append("<br>");
 for(i=0; i < npc.note.length; i++){
 $("#npcInfo").append("<div class='note'>" + npc.note[i] + "</div>");
 }
+$( "#npcInfo" ).append("<hr>");
 };

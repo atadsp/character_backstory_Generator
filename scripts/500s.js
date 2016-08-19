@@ -3,11 +3,30 @@ Character.prototype.tragedies528 = function(eventchain){
 	console.log('tragedy');
 if(eventchain === 'birthEvent'){
 	this.birthEvent.push(this.charName + " was born immediately after " + tragedy + " Some superstitious folk who know of this occurance might believe that " + this.subjectivePronoun + " was related to the tragedy.");
+} else if(eventchain === 'childhood'){
+	this.childEvent.push(this.charName + " experienced " + tragedy);
+} else if(eventchain === 'adolescent'){
+	this.adolecentEvent.push(this.charName + " experienced " + tragedy);
 }
 };
 
-Character.prototype.underworld534  = function(){
-	console.log('bad boy');
+Character.prototype.somethingWonderful529 = function(eventchain){
+	var wonderfulEvent = "";
+	if(eventchain === 'childhood'){
+		this.childEvent.push(this.charName + " experienced " + wonderfulEvent);
+	} else if(eventchain === 'adolescent'){
+		this.adolecentEvent.push(this.charName + " experienced " + wonderfulEvent);
+	}
+};
+Character.prototype.underworld534  = function(eventchain){
+
+	if(eventchain === 'childhood'){
+		console.log('childhood criminal');
+	} else if (eventchain ==='adolescent'){
+		console.log('teen criminal');
+	} else if (eventchain === 'civilized'){
+		console.log('bad boy');
+	}
 };
 Character.prototype.militaryExperience535a = function(eventchain){
 
