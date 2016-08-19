@@ -81,6 +81,8 @@ function Character(){
 	this.darkSideTraits = [];
 	this.exoticTraits = [];
 	this.neutralTraits = [];
+	//npc stuff
+	this.note = [];
 }
 var player = new Character();
 
@@ -141,8 +143,15 @@ Character.prototype.generateCharacter = function(){
 
 Character.prototype.postChar = function(){
 	if (this.isPlayerCharacter === true){
+//clear out the tabs between generations
 $( "#characterInfo" ).empty();
 $( "#birthEvent").empty();
+$( "#birthInfo").empty();
+$( "#skillList").empty();
+$( "#attirubteBonus").empty();
+$( "#specialAbilities").empty();
+
+//main character information
 $( "#characterInfo" ).append( "<div id='name'>Name: " + this.charName + "</div>" );
 $( "#characterInfo" ).append( "<div id='gender'>Gender: " + this.charGender + "</div>" );
 $( "#characterInfo" ).append( "<div id='race'>Race: " + this.charRace + "</div>" );
@@ -152,22 +161,81 @@ $( "#characterInfo" ).append( "<div id='social'>Social Status: " + this.charSoci
 if(this.isNoble === true && this.isOrphan === false){
 	$("#characterInfo").append( "<div id='noble'>Noble Title: " + this.nobleTitle + "</div>" );
 }
-$("#characterInfo").append( "<div id='birthday'>Birthday: " + this.birthMonth + ' ' + this.birthDay + "</div>" );
-$("#characterInfo").append( "<div id='birthLocation'>Birth Place: " + this.birthPlace + "</div>" );
+
+//birth information append
+$("#birthInfo").append( "<div id='birthday'>Birthday: " + this.birthMonth + ' ' + this.birthDay + "</div>" );
+$("#birthInfo").append( "<div id='birthLocation'>Birth Place: " + this.birthPlace + "</div>" );
+if(this.bornAtDay === true){
+	$("#birthInfo").append( "<div id='birthTime'>Birth Time: Day </div>" );
+} else if (this.bornAtNight === true){
+	$("#birthInfo").append( "<div id='birthTime'>Birth Time: Night </div>" );
+}
 if(this.isBastard === true){
-	$("#characterInfo").append("<br><div id='bastard'>" + this.bastardReason + "</div>");
+	$("#birthInfo").append("<div id='bastard'>" + this.bastardReason + "</div>");
 	if(this.isFatherKnown === true && this.isOrphan === false){
-		$("#characterInfo").append("<div id='fatherKnown'>" + this.charName + " knows " +this.possesivePronoun+ " father</div>");
+		$("#birthInfo").append("<div id='fatherKnown'>" + this.charName + " knows " +this.possesivePronoun+ " father</div>");
 }
 	if(this.isNoble === true && this.isOrphan === false){
-		$("#characterInfo").append("<div id='nobleBastard'>" + this.nobleBastardMessage + "</div>");
+		$("#birthInfo").append("<div id='nobleBastard'>" + this.nobleBastardMessage + "</div>");
 	}
 }
 if(this.adopted === true){
-	$("#characterInfo").append("<br><div id='adopted'>Adopted: " + this.charName + " was adopted by " + this.possesivePronoun + " current family</div>");
+	$("#birthInfo").append("<div id='adopted'>Adopted: " + this.charName + " was adopted by " + this.possesivePronoun + " current family</div>");
 }
 for(i = 0; i < this.birthEvent.length; i++){
 	$("#birthEvent").append("<div class='bevent'>" + this.birthEvent[i] + "</div>");
 }
+
+//special abitlies 
+for(i = 0; i < this.specialBonus.length; i++){
+	$("#specialAbilities").append("<div class='special'>" + this.specialBonus[i] + "</div>");
+}
+if(this.naturalArmorBonus > 0 || this.naturalArmorBonus < 0){
+	$("#specialAbilities").append("<div class='special'> Natural Armor Bonus: " + this.naturalArmorBonus + "</div>");
+}
+if(this.insaneresist > 0 || this.insaneresist < 0){
+	$("#specialAbilities").append("<div class='special'> Resistance to Insanity: " + this.insaneresist  + "</div>");
+}
+for(i=0; i < this.attributeBonus; i++){
+	$("#specialAbilities").append("<div class='special'>" + this.attributeBonus[i] + "</div>");
+}
+
+//Attirubte Bonus
+$("#attirubteBonus").append("<li class='skills list-group-item'> Strength: " + this.strength + "</li>");
+$("#attirubteBonus").append("<li class='skills list-group-item'> Dexterity: " + this.dextarity + "</li>");
+$("#attirubteBonus").append("<li class='skills list-group-item'> Consitution: " + this.consitution + "</li>");
+$("#attirubteBonus").append("<li class='skills list-group-item'> Intelligence: " + this.intelligence + "</li>");
+$("#attirubteBonus").append("<li class='skills list-group-item'> Wisdom: " + this.wisdom + "</li>");
+$("#attirubteBonus").append("<li class='skills list-group-item'> Charisma: " + this.charisma + "</li>");
+
+//skills append
+if(this.weaponRank > 0 || this.weaponRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Weapon Ranks: " + this.weaponRank + "</li>");
+}
+if(this.meleeWeaponRank > 0 || this.meleeWeaponRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Melee Weapon Ranks: " + this.meleeWeaponRank + "</li>");
+}
+if(this.missileWeaponRank > 0 || this.missileWeaponRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Ranged Weapon Ranks: " + this.missileWeaponRank + "</li>");
+}
+if(this.urbanSurvivalRank > 0 || this.urbanSurvivalRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Urban Survival Ranks: " + this.urbanSurvivalRank + "</li>");
+}
+if(this.wildernessSurvivalRank > 0 || this.wildernessSurvivalRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Wilderness Survival Ranks: " + this.wildernessSurvivalRank + "</li>");
+}
+if(this.huntingGatheringRank > 0 || this.huntingGatheringRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Hunting and Gathering Ranks: " + this.huntingGatheringRank + "</li>");
+}
+if(this.ridingRank > 0 || this.ridingRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Riding Ranks: " + this.ridingRank + "</li>");
+}
+if(this.streetFightRank > 0 || this.streetFightRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Street Fighting Ranks: " + this.streetFightRank + "</li>");
+}
+if(this.stealthRank > 0 || this.stealthRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Stealth Ranks: " + this.stealthRank + "</li>");
+}
+
 }
 };

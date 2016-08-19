@@ -7,6 +7,16 @@ Character.prototype.giftsAndLegacies863 = function(eventchain){
 	if(eventchain === 'godChild'){
 		this.birthEvent.push('As a result of his godly heritage ' + this.charName + ' was given ' + giftOrLegacy + ' at birth.');
 	}
+	if(eventchain === 'npc'){
+		npc.note.push(npc.charName + ' possesses a ' + giftOrLegacy);
+	}
+};
+
+Character.prototype.deities864 = function(eventchain){
+	var diety = "";
+	if(eventchain === 'birthEvent'){
+		console.log('something about a diety?');
+	}
 };
 
 Character.prototype.birthMark866 = function(eventchain){
@@ -36,6 +46,14 @@ Character.prototype.blessings869 = function(eventchain){
 	}
 	if(eventchain === 'godChild'){
 		this.birthEvent.push('As a result of his godly heritage ' + this.charName + ' was born with ' + blessing);
+	}
+};
+
+Character.prototype.seriousWounds870 = function(eventchain){
+	var seriousWound = "";
+
+	if(eventchain === 'npc'){
+		npc.note.push(npc.charName + " received " + seriousWound);
 	}
 };
 

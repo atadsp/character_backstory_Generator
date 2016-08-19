@@ -9,6 +9,27 @@ if(eventchain === 'birthEvent'){
 Character.prototype.underworld534  = function(){
 	console.log('bad boy');
 };
+Character.prototype.militaryExperience535a = function(eventchain){
+
+	if(eventchain === 'npc'){
+		console.log('NPC did some fighting');
+	}
+};
+
+Character.prototype.inServiceOf543 = function(eventchain){
+
+	if(eventchain === 'npc'){
+		console.log('NPC has a dude');
+	}
+};
+
+Character.prototype.exoticEvents544 = function(eventchain){
+	var exoticEvent = "";
+
+	if(eventchain === 'npc'){
+		npc.note.push(exoticEvent);
+	}
+};
 
 Character.prototype.deathSituations545 = function(eventchain){
 	var deathSituation = '';
