@@ -38,17 +38,16 @@ Character.prototype.bodyLocation867 = function(eventchain, table){
 };
 
 Character.prototype.curses868 = function(eventchain){
-	console.log('curse');
 	var d3 = Math.floor(Math.random() * (3 -1 + 1) + 1);
 	var d4 = Math.floor(Math.random() * (4 -1 + 1) + 1);
 	var d6 = Math.floor(Math.random() * (6 -1 + 1) + 1);
-	var d20 = Math.floor(Math.random() * (19 -1 + 1) + 1);
+	var ranCurse = Math.floor(Math.random() * (19 -1 + 1) + 1);
 	var cmpt = false;
 	var curse = '';
-	switch(d20){
+	switch(ranCurse){
 		case 1:
 			for(i =0; i < d4; i++){
-				darksideTrait648();
+				this.darksideTrait648();
 			}
 			curse = "several dark side traits.";
 			cmpt = true;
@@ -148,8 +147,7 @@ Character.prototype.blessings869 = function(eventchain){
 	console.log('blessing');
 	if(eventchain === 'birthEvent'){
 		this.birthEvent.push(this.charName + " was born with " + blessing);
-	}
-	if(eventchain === 'godChild'){
+	} else if(eventchain === 'godChild'){
 		this.birthEvent.push('As a result of his godly heritage ' + this.charName + ' was born with ' + blessing);
 	}
 };
@@ -184,4 +182,8 @@ Character.prototype.physicalAfflctions874 = function(eventchain){
 	} else if(eventchain === 'godChild'){
 		this.birthEvent.push('As a result of his godly heritage ' + this.charName + ' was born with ' + physicalAfflictions);
 	}
+};
+
+Character.prototype.unusualSkill876 = function(){
+	console.log('Unusual Skill');
 };

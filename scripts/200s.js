@@ -6,7 +6,10 @@ Character.prototype.significantChildhoodEvents215 = function(age, sol){
 	var cmplt = false;
 	var d4 = Math.floor(Math.random() * (4 -1 + 1) + 1);
 	var d6 = Math.floor(Math.random() * (6 -1 + 1) + 1);
+	var d8 = Math.floor(Math.random() * (8 -1 + 1) + 1);
+	var d9 = Math.floor(Math.random() * (9 -1 + 1) + 1);
 	var d10 = Math.floor(Math.random() * (10 -1 + 1) + 1);
+	var d12 = Math.floor(Math.random() * (12 -1 + 1) + 1);
 	switch(eventRan){
 		case -2:
 			if(this.charCulture != "Primitive"){
@@ -40,12 +43,83 @@ Character.prototype.significantChildhoodEvents215 = function(age, sol){
 			cmplt = true;
 		break;
 		case 4:
+			this.unusualSkill876();
+			this.neutralTraits.push('N');
+			cmplt = true;
 		break;
 		case 5:
+		if(this.occupation === ""){
+			if(this.charCulture === "Primitive") {
+				this.primativeOccupation420a(this.charSocMod);
+			} else if (this.charCulture === "Nomad"){
+				this.nomadOccupation421a(this.charSocMod);
+			} else if (this.charCulture === "Barbarian"){
+				this.barbarianOccupatio422a(this.charSocMod);
+			} else {
+				this.civilizedOccupation423a(this.charSocMod);
+			}
+			this.neutralTraits.push('N');
+		} else {
+			this.significantChildhoodEvents215(age, this.charSocMod);
+		}
 		break;
 		case 6:
+			if(this.runaway === false){
+				this.neutralTraits.push('N');
+				cmplt = true;
+				switch(d9){
+					case 1:
+					evnt = this.charName + " ran away from home and never returned";
+					this.runaway = true;
+					break;
+
+					case 2:
+					evnt = this.charName + " ran away from home and returned " + d8 + " days later";
+					break;
+
+					case 3:
+					evnt = this.charName + " ran away from home and returned " + d12 + " months later";
+					break;
+
+					case 4:
+					evnt = this.charName + " ran away from home and returned " + d6 + " years later";
+					break;
+
+					case 5:
+					evnt = this.charName + " ran away from home to a distant land";
+					this.runaway = true;
+					break;
+										
+					case 6:
+					evnt = this.charName + " ran away from home and joined the circus";
+					this.runaway = true;
+					break;
+										
+					case 7:
+					this.underworld534('runaway');
+					this.darkSideTraits.push('D');
+					this.runaway = true;
+					break;
+					
+					case 8:
+					evnt = this.charName + " ran away from home and wanders the land, always one step ahead of the authorities, living by " + this.possesivePronoun + " wits.";
+					this.wildernessSurvivalRank++;
+					this.urbanSurvivalRank++;
+					this.runaway = true;
+					break;
+					
+					case 9:
+					evnt = this.charName + " ran away from home and never returned";
+					break;
+				}
+			} else {
+				this.significantChildhoodEvents215(age, this.charSocMod);
+			}
 		break;
 		case 7:
+			this.religiousExperience541(age);
+			this.randomTraits.push('R');
+			cmplt = true;
 		break;
 		case 8:
 		break;
@@ -104,13 +178,13 @@ Character.prototype.significantChildhoodEvents215 = function(age, sol){
 	if(cmplt === true){
 		if(age === 'childhood'){
 			this.childAgeEvent.push(childRanAge);
-			if(evnt){
+			if(evnt === ""){
 			} else {
 			this.childEvent.push(evnt);
 			}
 		} else if(age === 'adolescent'){
 			this.adolecentEventAge.push(adoRanAge);
-			if(evnt){
+			if(evnt === ""){
 			} else {
 			this.adolecentEvent.push(evnt);
 		}

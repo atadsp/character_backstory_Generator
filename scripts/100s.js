@@ -185,7 +185,7 @@ Character.prototype.social103 = function(){
 			this.charSocMod += 5;
 			var nobleExTraitRan = Math.floor(Math.random() * (2 -1 + 1) + 1);
 			if (nobleExTraitRan === 1){
-				this.exoticPersonalityTrait649();
+				this.exoticTraits.push('E');
 			}
 		if (this.charEnviroment === "Wilderness"){
 			this.wildernessSurvivalRank += -1;
@@ -439,10 +439,7 @@ Character.prototype.family106 = function (){
 // infinite loop somewhere in 107 and generatenpc.js
 Character.prototype.siblings107 = function(){
 	var siblingRan = Math.floor(Math.random() * (20 -1 + 1) + 1);
-	var numSiblings = Math.floor(Math.random() * (3 -1 + 1) + 1);
-	var numSiblingsTwo = Math.floor(Math.random() * (6 -3 + 1) + 3);
-	var	numSiblingsThree = Math.floor(Math.random() * (8 - 2 + 1) + 2);
-	var numBastardSiblings = Math.floor(Math.random() * (3 -1 + 1) + 1);
+		// console.log(siblingRan);
 	// if(siblingRan < 3){
 	// 	if(this.bastardSiblings < 1){
 	// 	this.wealth += 0.3;
@@ -450,8 +447,10 @@ Character.prototype.siblings107 = function(){
 	// 	} else {
 	// 	this.siblings107();
 	// 	}
-	// } else if(siblingRan <10 && siblingRan >2){
+	// } else if(siblingRan <20 && siblingRan >2){
+	// 	var numSiblings = Math.floor(Math.random() * (8 -1 + 1) + 1);
 	// 	for(i = 0; i < numSiblings; i++){
+	// 	var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
 	// 		if(siblingGender === 1){
 	// 			this.generateNPC('sister');
 	// 			this.siblingNum ++;
@@ -460,40 +459,9 @@ Character.prototype.siblings107 = function(){
 	// 			this.siblingNum ++;
 	// 		}
 	// 	}
-	// } else if(siblingRan < 16 && siblingRan > 9){
-	// 	for(i = 0; i < numSiblings; i++){
-	// 		var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
-	// 		if(siblingGender === 1){
-	// 			this.generateNPC('sister');
-	// 			this.siblingNum ++;
-	// 		} else {
-	// 			this.generateNPC('brother');
-	// 			this.siblingNum ++;
-	// 		}
-	// 	}
-	// } else if(siblingRan < 18 && siblingRan > 15){
-	// 	for(i = 0; i < numSiblingsTwo; i++){
-	// 		var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
-	// 		if(siblingGender === 1){
-	// 			this.generateNPC('sister');
-	// 			this.siblingNum ++;
-	// 		} else {
-	// 			this.generateNPC('brother');
-	// 			this.siblingNum ++;
-	// 		}
-	// 	}
-	// } else if(siblingRan < 20 && siblingRan > 17){
-	// 	for(i = 0; i < numSiblingsThree; i++){
-	// 		var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
-	// 		if(siblingGender === 1){
-	// 			this.generateNPC('sister');
-	// 			this.siblingNum ++;
-	// 		} else {
-	// 			this.generateNPC('brother');
-	// 			this.siblingNum ++;
-	// 		}
-	// 	}
+	// 	this.birthOrder108();
 	// } else if(siblingRan > 19){
+	// 	var numBastardSiblings = Math.floor(Math.random() * (3 -1 + 1) + 1);
 	// 	for(i = 0; i < numBastardSiblings; i++){
 	// 		var siblingGender = Math.floor(Math.random() * (2 -1 + 1) + 1);
 	// 		if(siblingGender === 1){
@@ -506,7 +474,8 @@ Character.prototype.siblings107 = function(){
 	// 	}
 	// 	this.siblings107();
 	// }
-	this.birthOrder108();
+
+	this.TimeofBirth109();
 };
 
 
@@ -807,6 +776,7 @@ Character.prototype.unusualBirth112 = function(){
 	for(i = 0; i< adultran; i++){
 		this.significantAdultEvents217();
 	}
+	this.alignmentControl();
 	this.postChar();
 };
 

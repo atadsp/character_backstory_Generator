@@ -35,6 +35,15 @@ Character.prototype.militaryExperience535a = function(eventchain){
 	}
 };
 
+Character.prototype.religiousExperience541 = function(eventchain){
+
+	if(eventchain === "childhood"){
+		console.log('childhood indoctrination');
+	} else if (eventchain === "adolescent"){
+		console.log('adolescent choice');
+	}
+};
+
 Character.prototype.inServiceOf543 = function(eventchain){
 
 	if(eventchain === 'npc'){

@@ -66,8 +66,8 @@ function Character(){
 	this.meleeWeaponRank = 0;
 	this.missileWeaponRank = 0;
 	this.wildernessSurvivalRank = 0;
-	this.huntingGatheringRank = 0;
 	this.urbanSurvivalRank = 0;
+	this.huntingGatheringRank = 0;
 	this.ridingRank = 0;
 	this.streetFightRank = 0;
 	this.stealthRank = 0;
@@ -92,6 +92,7 @@ function Character(){
 	this.traitStrength = [];
 	//other stuff
 	this.loverDeath = false;
+	this.runaway = false;
 	//npc stuff
 	this.note = [];
 }
@@ -151,6 +152,13 @@ Character.prototype.generateCharacter = function(){
 	this.adolecentEventAge.length = 0;
 	this.adolecentEvent.length = 0;
 	this.birthEventNum.length = 0;
+	this.lightSideTraits.length = 0;
+	this.darkSideTraits.length = 0;
+	this.exoticTraits.length = 0;
+	this.neutralTraits.length = 0;
+	this.randomTraits.length = 0;
+	this.traits.length = 0;
+	this.traitStrength.length = 0;
 	this.charName = $("#charName").val();
 	this.isPlayerCharacter = true;
 	this.setGender();
@@ -159,12 +167,13 @@ Character.prototype.generateCharacter = function(){
 Character.prototype.postChar = function(){
 	if (this.isPlayerCharacter === true){
 //clear out the tabs between generations
-$( "#characterInfo" ).empty();
-$( "#birthEvent").empty();
-$( "#birthInfo").empty();
-$( "#skillList").empty();
-$( "#attirubteBonus").empty();
-$( "#specialAbilities").empty();
+$("#characterInfo").empty();
+$("#birthEvent").empty();
+$("#birthInfo").empty();
+$("#skillList").empty();
+$("#attirubteBonus").empty();
+$("#specialAbilities").empty();
+$("#traitInfo").empty();
 
 //main character information
 $( "#characterInfo" ).append( "<div id='name'>Name: " + this.charName + "</div>" );
@@ -250,6 +259,10 @@ if(this.streetFightRank > 0 || this.streetFightRank < 0){
 }
 if(this.stealthRank > 0 || this.stealthRank < 0){
 	$("#skillList").append("<li class='skills list-group-item'> Stealth Ranks: " + this.stealthRank + "</li>");
+}
+
+for(i=0; i < this.traits.length; i++){
+	$("#traitInfo").append("<li class='traitLI'>" + this.traits[i] + ": " + this.traitStrength[i] + "/100 </li>");
 }
 
 }

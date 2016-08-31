@@ -147,11 +147,11 @@ Character.prototype.noteworthyItems114b = function(){
 	switch(noteRan){
 		case 1:
 			if(d6 < 4){
-				npc.lightSideTrait647();
+				npc.lightSideTraits.push('L');
 			} else if (d6 === 6){
-				npc.exoticPersonalityTrait649();
+				npc.exoticTraits.push('E');
 			} else {
-				npc.darksideTrait648();
+				npc.darkSideTraits.push('D');
 			}
 		break;
 		case 2:
