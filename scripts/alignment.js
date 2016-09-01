@@ -345,7 +345,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 39:
-			if(this.traits.includes('Pious') === false && this.traits.includes('Irreverent') === false && this.traits.includes('Atheistic') === false){
+			if(this.traits.includes('Pious') === false && this.traits.includes('Atheistic') === false){
 				this.traits.push('Atheistic');
 			} else {
 				this.neutralTrait318B();
@@ -763,7 +763,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 12:
-			if(this.traits.includes('Pious') === false && this.traits.includes('Irreverent') === false && this.traits.includes('Atheistic') === false){
+			if(this.traits.includes('Pious') === false && this.traits.includes('Irreverent') === false){
 				this.traits.push('Irreverent');
 			}  else {
 				this.darksideTrait648();
