@@ -88,6 +88,8 @@ function Character(){
 	this.exoticTraits = [];
 	this.neutralTraits = [];
 	this.randomTraits = [];
+	this.totalLight = 0;
+	this.totalDark = 0;
 	this.traits = [];
 	this.traitStrength = [];
 	//other stuff
@@ -99,7 +101,15 @@ function Character(){
 var player = new Character();
 
 Character.prototype.generateCharacter = function(){
-	$( "#npcInfo").empty();
+	//clear out the tabs between generations
+	$("#characterInfo").empty();
+	$("#birthEvent").empty();
+	$("#birthInfo").empty();
+	$("#skillList").empty();
+	$("#attirubteBonus").empty();
+	$("#specialAbilities").empty();
+	$("#traitInfo").empty();
+	$("#npcInfo").empty();
 	this.charCultMod = 0;
 	this.charSocMod = 0;
 	this.isNoble = false;
@@ -159,22 +169,21 @@ Character.prototype.generateCharacter = function(){
 	this.randomTraits.length = 0;
 	this.traits.length = 0;
 	this.traitStrength.length = 0;
+	this.totalLight = 0;
+	this.totalDark = 0;
 	this.charName = $("#charName").val();
 	this.isPlayerCharacter = true;
 	this.setGender();
 };
 
 Character.prototype.postChar = function(){
-	if (this.isPlayerCharacter === true){
-//clear out the tabs between generations
-$("#characterInfo").empty();
-$("#birthEvent").empty();
-$("#birthInfo").empty();
-$("#skillList").empty();
-$("#attirubteBonus").empty();
-$("#specialAbilities").empty();
-$("#traitInfo").empty();
-
+	$("#characterInfo").empty();
+	$("#birthEvent").empty();
+	$("#birthInfo").empty();
+	$("#skillList").empty();
+	$("#attirubteBonus").empty();
+	$("#specialAbilities").empty();
+	$("#traitInfo").empty();
 //main character information
 $( "#characterInfo" ).append( "<div id='name'>Name: " + this.charName + "</div>" );
 $( "#characterInfo" ).append( "<div id='gender'>Gender: " + this.charGender + "</div>" );
@@ -263,7 +272,5 @@ if(this.stealthRank > 0 || this.stealthRank < 0){
 
 for(i=0; i < this.traits.length; i++){
 	$("#traitInfo").append("<li class='traitLI'>" + this.traits[i] + ": " + this.traitStrength[i] + "/100 </li>");
-}
-
 }
 };

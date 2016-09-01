@@ -15,9 +15,11 @@ for(i = 0; i < this.randomTraits.length; i++){
 }
 for(i = 0; i < this.lightSideTraits.length; i++){
 	this.lightSideTrait647();
+	this.totalLight++;
 }
 for(i = 0; i < this.darkSideTraits.length; i++){
 	this.darksideTrait648();
+	this.totalDark++;
 }
 for(i = 0; i < this.neutralTraits.length; i++){
 	this.neutralTrait318B();
@@ -989,9 +991,230 @@ Character.prototype.darksideTrait648 = function(){
 };
 
 Character.prototype.exoticPersonalityTrait649 = function(){
-	console.log("This dude is exotic");
+	var d20 = Math.floor(Math.random() * (20 -1 + 1) + 1);
+	var d3 = Math.floor(Math.random() * (3 -1 + 1) + 1);
+	d3++;
+	if(d20 < 5){
+		this.mentalAfflictions649b();
+	} else if (d20 < 8 && d20 > 4){
+		this.phobia649c();
+	} else if (d20 < 11 && d20 > 7){
+		this.allergy649d();
+	} else if (d20 < 18 && d20 > 10){
+		this.behaviorTag649e();
+	} else if (d20 === 18 || d20 === 19){
+		this.sexualDisorder649f();
+	} else if (d20 > 19){
+		for(i = 0; i < d3; i++){
+			this.exoticPersonalityTrait649();
+		}
+	}
 };
 
 Character.prototype.mentalAfflictions649b = function(){
-	console.log("This dude is mental");
+	var affliction = Math.floor(Math.random() * (13 -1 + 1) + 1);
+	var d2 = Math.floor(Math.random() * (2 -1 + 1) + 1);
+	var d3 = Math.floor(Math.random() * (3 -1 + 1) + 1);
+	var d4 = Math.floor(Math.random() * (4 -1 + 1) + 1);
+	var d6 = Math.floor(Math.random() * (6 -1 + 1) + 1);
+
+	switch(affliction){
+		case 1:
+		if(this.traits.includes('Multiple Personalities') === false){
+		this.traits.push('Multiple Personalities');
+		this.specialBonus.push(this.charName + ' has ' + d3 + ' alternante personalities, litterially becoming another person.');
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 2:
+		if(this.traits.includes('Compulsive Lying') === false){
+		this.traits.push('Compulsive Lying');
+		this.totalDark ++;
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 3:
+		if(this.traits.includes('Paranoia') === false){
+		this.traits.push('Paranoia');
+		this.totalDark ++;
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 4:
+		if(this.traits.includes('Hallucinations') === false){
+		this.traits.push('Hallucinations');
+		this.specialBonus.push(this.charName + " sees unreal visions and distortions of reality. Each occurance has a 10% chance to render " + this.objectivePronoun + " temporarily comatose.");
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 5:
+		this.phobia649c();
+		break;
+
+		case 6:
+		if(this.traits.includes('Manic-depressive') === false){
+		this.traits.push('Manic-depressive');
+		this.totalDark++;
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 7:
+		if(this.traits.includes('Hypochondria') === false){
+		this.traits.push('Hypochondria');
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 8:
+		case 9:
+		if(this.traits.includes('Depression') === false){
+		this.traits.push('Depression');
+		Math.round(this.weaponRank / 2);
+		Math.round(this.meleeWeaponRank / 2);
+		Math.round(this.missileWeaponRank / 2);
+		Math.round(this.wildernessSurvivalRank / 2);
+		Math.round(this.urbanSurvivalRank / 2);
+		Math.round(this.huntingGatheringRank / 2);
+		Math.round(this.ridingRank / 2);
+		Math.round(this.streetFightRank / 2);
+		Math.round(this.stealthRank / 2);
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 10:
+		case 11:
+			switch(d6){
+				case 1:
+					switch(d2){
+						case 1:
+						if(this.traits.includes('Obession: Hate of Non-Humans') === false){
+						this.traits.push('Obession: Hate of Non-Humans');
+						} else {
+							this.mentalAfflictions649b();
+						}
+						break;
+						case 2:
+						if(this.traits.includes('Obession: Hate of Monsters') === false){
+						this.traits.push('Obession: Hate of Monsters');
+						} else {
+							this.mentalAfflictions649b();
+						}
+						break;
+					}
+				break;
+
+				case 2:
+				if(this.traits.includes('Obession: Need to Destroy') === false){
+				this.traits.push('Obession: Need to Destroy');
+				this.totalDark++;
+				} else {
+					this.mentalAfflictions649b();
+				}
+				break;
+
+				case 3:
+				if(this.traits.includes('Obession: Superstion') === false){
+				this.traits.push('Obession: Superstion');
+				} else {
+					this.mentalAfflictions649b();
+				}
+				break;
+
+				case 4:
+				if(this.traits.includes('Obession: Cleanliness') === false){
+				this.traits.push('Obession: Cleanliness');
+				} else {
+					this.mentalAfflictions649b();
+				}
+				break;
+
+				case 5:
+					switch(d3){
+						case 1:
+						if(this.traits.includes('Obession: Collecting Gold') === false){
+						this.traits.push('Obession: Collecting Gold');
+						} else {
+							this.mentalAfflictions649b();
+						}
+						break;
+
+						case 2:
+						if(this.traits.includes('Obession: Collecting Animals') === false){
+						this.traits.push('Obession: Collecting Animals');
+						} else {
+							this.mentalAfflictions649b();
+						}
+						break;
+
+						case 3:
+						if(this.traits.includes('Obession: Collecting Beautiful Things') === false){
+						this.traits.push('Obession: Collecting Beautiful Things');
+						} else {
+							this.mentalAfflictions649b();
+						}
+						break;
+					}
+				break;
+
+				case 6:
+				if(this.traits.includes('Obession: Helping Others') === false){
+				this.traits.push('Obession: Helping Others');
+				} else {
+					this.mentalAfflictions649b();
+				}
+				break;
+			}
+		break;
+
+		case 12:
+		if(this.traits.includes('Kleptomania') === false){
+		this.traits.push('Kleptomania');
+		this.totalDark++;
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 13:
+		if(this.traits.includes('Pyromania') === false){
+		this.traits.push('Pyromania');
+		this.totalDark++;
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+	}
+};
+
+Character.prototype.phobia649c = function(){
+	console.log('phobia');
+
+};
+
+Character.prototype.allergy649d = function(){
+	console.log('allergy');
+
+};
+
+Character.prototype.behaviorTag649e = function(){
+	console.log('Behavior Tag');
+
+};
+
+Character.prototype.sexualDisorder649f = function(){
+	console.log('Sexual Disorder');
+
 };
