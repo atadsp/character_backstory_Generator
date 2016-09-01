@@ -81,7 +81,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 6:
-			if(this.traits.includes('Loquacious') === false){
+			if(this.traits.includes('Loquacious') === false && this.traits.includes('Silent') === false){
 				this.traits.push('Loquacious');
 			} else {
 				this.neutralTrait318B();
@@ -89,7 +89,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 7:
-			if(this.traits.includes('Silent') === false){
+			if(this.traits.includes('Loquacious') === false && this.traits.includes('Silent') === false){
 				this.traits.push('Silent');
 			} else {
 				this.neutralTrait318B();
@@ -153,7 +153,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 15:
-			if(this.traits.includes('Extrovert') === false){
+			if(this.traits.includes('Introvert') === false &&  this.traits.includes('Extrovert') === false){
 				this.traits.push('Extrovert');
 			} else {
 				this.neutralTrait318B();
@@ -161,7 +161,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 16:
-			if(this.traits.includes('Introvert') === false){
+			if(this.traits.includes('Introvert') === false &&  this.traits.includes('Extrovert') === false){
 				this.traits.push('Introvert');
 			} else {
 				this.neutralTrait318B();
@@ -169,7 +169,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 17:
-			if(this.traits.includes('Materialistic') === false){
+			if(this.traits.includes('Materialistic') === false && this.traits.includes('Aesthetic') === false){
 				this.traits.push('Materialistic');
 			} else {
 				this.neutralTrait318B();
@@ -177,7 +177,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 18:
-			if(this.traits.includes('Aesthetic') === false){
+			if(this.traits.includes('Materialistic') === false && this.traits.includes('Aesthetic') === false){
 				this.traits.push('Aesthetic');
 			} else {
 				this.neutralTrait318B();
@@ -185,7 +185,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 19:
-			if(this.traits.includes('Amoral') === false){
+			if(this.traits.includes('Amoral') === false && this.traits.includes('Virtuous') === false && this.traits.includes('Immoral') === false){
 				this.traits.push('Amoral');
 			} else {
 				this.neutralTrait318B();
@@ -209,7 +209,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 22:
-			if(this.traits.includes('Leader') === false){
+			if(this.traits.includes('Leader') === false && this.traits.includes('Follower') === false){
 				this.traits.push('Leader');
 			} else {
 				this.neutralTrait318B();
@@ -217,7 +217,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 23:
-			if(this.traits.includes('Follower') === false){
+			if(this.traits.includes('Leader') === false && this.traits.includes('Follower') === false){
 				this.traits.push('Follower');
 			} else {
 				this.neutralTrait318B();
@@ -225,7 +225,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 24:
-			if(this.traits.includes('Emotional') === false){
+			if(this.traits.includes('Emotional') === false && this.traits.includes('Emotionless') === false){
 				this.traits.push('Emotional');
 			} else {
 				this.neutralTrait318B();
@@ -233,7 +233,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 25:
-			if(this.traits.includes('Emotionless') === false){
+			if(this.traits.includes('Emotional') === false && this.traits.includes('Emotionless') === false){
 				this.traits.push('Emotionless');
 			} else {
 				this.neutralTrait318B();
@@ -241,7 +241,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 26:
-			if(this.traits.includes('Humorous') === false){
+			if(this.traits.includes('Humorous') === false && this.traits.includes('Grim') === false){
 				this.traits.push('Humorous');
 			} else {
 				this.neutralTrait318B();
@@ -249,7 +249,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 27:
-			if(this.traits.includes('Grim') === false){
+			if(this.traits.includes('Humorous') === false && this.traits.includes('Grim') === false){
 				this.traits.push('Grim');
 			} else {
 				this.neutralTrait318B();
@@ -257,7 +257,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 28:
-			if(this.traits.includes('Conservative') === false){
+			if(this.traits.includes('Conservative') === false && this.traits.includes('Liberal') === false){
 				this.traits.push('Conservative');
 			} else {
 				this.neutralTrait318B();
@@ -265,7 +265,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 29:
-			if(this.traits.includes('Liberal') === false){
+			if(this.traits.includes('Conservative') === false && this.traits.includes('Liberal') === false){
 				this.traits.push('Liberal');
 			} else {
 				this.neutralTrait318B();
@@ -273,7 +273,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 30:
-			if(this.traits.includes('Aggresive') === false){
+			if(this.traits.includes('Aggresive') === false && this.traits.includes('Passive') === false){
 				this.traits.push('Aggresive');
 			} else {
 				this.neutralTrait318B();
@@ -281,7 +281,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 31:
-			if(this.traits.includes('Passive') === false){
+			if(this.traits.includes('Aggresive') === false && this.traits.includes('Passive') === false){
 				this.traits.push('Passive');
 			} else {
 				this.neutralTrait318B();
@@ -289,7 +289,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 32:
-			if(this.traits.includes('Selfsufficent') === false){
+			if(this.traits.includes('Selfsufficent') === false && this.traits.includes('Dependent') === false){
 				this.traits.push('Selfsufficent');
 			} else {
 				this.neutralTrait318B();
@@ -297,7 +297,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 33:
-			if(this.traits.includes('Dependent') === false){
+			if(this.traits.includes('Selfsufficent') === false && this.traits.includes('Dependent') === false){
 				this.traits.push('Dependent');
 			} else {
 				this.neutralTrait318B();
@@ -313,7 +313,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 35:
-			if(this.traits.includes('Logical') === false){
+			if(this.traits.includes('Logical') === false && this.traits.includes('Illogical') === false){
 				this.traits.push('Logical');
 			} else {
 				this.neutralTrait318B();
@@ -345,7 +345,7 @@ Character.prototype.neutralTrait318B = function(){
 		break;
 
 		case 39:
-			if(this.traits.includes('Atheistic') === false){
+			if(this.traits.includes('Pious') === false && this.traits.includes('Irreverent') === false && this.traits.includes('Atheistic') === false){
 				this.traits.push('Atheistic');
 			} else {
 				this.neutralTrait318B();
@@ -358,7 +358,7 @@ Character.prototype.lightSideTrait647 = function() {
 	var ranTrait = Math.floor(Math.random() * (39 -1 + 1) + 1);
 	switch(ranTrait){
 		case 1:
-			if(this.traits.includes('Optimist') === false){
+			if(this.traits.includes('Optimist') === false && this.traits.includes('Pessimist') === false){
 				this.traits.push('Optimist');
 			} else {
 				this.lightSideTrait647();
@@ -366,7 +366,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 2:
-			if(this.traits.includes('Altuist') === false){
+			if(this.traits.includes('Altuist') === false && this.traits.includes('Egoist') === false){
 				this.traits.push('Altuist');
 			} else {
 				this.lightSideTrait647();
@@ -374,7 +374,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 3:
-			if(this.traits.includes('Helpful') === false){
+			if(this.traits.includes('Helpful') === false && this.traits.includes('Obstructive') === false){
 				this.traits.push('Helpful');
 			} else {
 				this.lightSideTrait647();
@@ -382,7 +382,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 4:
-			if(this.traits.includes('Kindly') === false){
+			if(this.traits.includes('Kindly') === false && this.traits.includes('Cruel') === false){
 				this.traits.push('Kindly');
 			} else {
 				this.lightSideTrait647();
@@ -390,7 +390,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 5:
-			if(this.traits.includes('Considerate') === false){
+			if(this.traits.includes('Considerate') === false && this.traits.includes('Careless') === false){
 				this.traits.push('Considerate');
 			} else {
 				this.lightSideTrait647();
@@ -398,7 +398,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 6:
-			if(this.traits.includes('Sober') === false){
+			if(this.traits.includes('Sober') === false && this.traits.includes('Thoughtless') === false){
 				this.traits.push('Sober');
 			} else {
 				this.lightSideTrait647();
@@ -406,7 +406,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 7:
-			if(this.traits.includes('Careful') === false){
+			if(this.traits.includes('Careful') === false && this.traits.includes('Flippant') === false){
 				this.traits.push('Careful');
 			} else {
 				this.lightSideTrait647();
@@ -414,7 +414,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 8:
-			if(this.traits.includes('Teetotaler') === false){
+			if(this.traits.includes('Teetotaler') === false && this.traits.includes('Drunkard') === false){
 				this.traits.push('Teetotaler');
 			} else {
 				this.lightSideTrait647();
@@ -422,7 +422,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 9:
-			if(this.traits.includes('Trusting') === false){
+			if(this.traits.includes('Trusting') === false && this.traits.includes('Suspicious') === false){
 				this.traits.push('Trusting');
 			} else {
 				this.lightSideTrait647();
@@ -430,7 +430,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 10:
-			if(this.traits.includes('Peaceful') === false){
+			if(this.traits.includes('Peaceful') === false && this.traits.includes('Violent') === false){
 				this.traits.push('Peaceful');
 			} else {
 				this.lightSideTrait647();
@@ -438,7 +438,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 11:
-			if(this.traits.includes('Peacemaker') === false){
+			if(this.traits.includes('Peacemaker') === false && this.traits.includes('Argumentative') === false){
 				this.traits.push('Peacemaker');
 			} else {
 				this.lightSideTrait647();
@@ -446,7 +446,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 12:
-			if(this.traits.includes('Pious') === false){
+			if(this.traits.includes('Pious') === false && this.traits.includes('Irreverent') === false && this.traits.includes('Atheistic') === false){
 				this.traits.push('Pious');
 			} else {
 				this.lightSideTrait647();
@@ -454,7 +454,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 13:
-			if(this.traits.includes('Honest') === false){
+			if(this.traits.includes('Honest') === false && this.traits.includes('Cheat') === false){
 				this.traits.push('Honest');
 			} else {
 				this.lightSideTrait647();
@@ -462,7 +462,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 14:
-			if(this.traits.includes('Loving') === false){
+			if(this.traits.includes('Loving') === false && this.traits.includes('Hateful') === false){
 				this.traits.push('Loving');
 			} else {
 				this.lightSideTrait647();
@@ -470,7 +470,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 15:
-			if(this.traits.includes('Giving') === false){
+			if(this.traits.includes('Giving') === false && this.traits.includes('Selfish') === false){
 				this.traits.push('Giving');
 			} else {
 				this.lightSideTrait647();
@@ -478,7 +478,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 16:
-			if(this.traits.includes('Organized') === false){
+			if(this.traits.includes('Organized') === false && this.traits.includes('Filthy') === false ){
 				this.traits.push('Organized');
 			} else {
 				this.lightSideTrait647();
@@ -486,7 +486,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 17:
-			if(this.traits.includes('Clean') === false){
+			if(this.traits.includes('Clean') === false && this.traits.includes('Tardy') === false){
 				this.traits.push('Clean');
 			} else {
 				this.lightSideTrait647();
@@ -494,7 +494,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 18:
-			if(this.traits.includes('Punctual') === false){
+			if(this.traits.includes('Punctual') === false && this.traits.includes('Self-doubting') === false){
 				this.traits.push('Punctual');
 			} else {
 				this.lightSideTrait647();
@@ -502,7 +502,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 19:
-			if(this.traits.includes('Self-Confident') === false){
+			if(this.traits.includes('Self-Confident') === false && this.traits.includes('Cowardly') === false){
 				this.traits.push('Self-Confident');
 			} else {
 				this.lightSideTrait647();
@@ -510,7 +510,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 20:
-			if(this.traits.includes('Courageous') === false){
+			if(this.traits.includes('Courageous') === false && this.traits.includes('Cowardly') === false){
 				this.traits.push('Courageous');
 			} else {
 				this.lightSideTrait647();
@@ -518,7 +518,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 21:
-			if(this.traits.includes('Respectful') === false){
+			if(this.traits.includes('Respectful') === false && this.traits.includes('Disrepectful') === false){
 				this.traits.push('Respectful');
 			} else {
 				this.lightSideTrait647();
@@ -526,7 +526,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 22:
-			if(this.traits.includes('Calm') === false){
+			if(this.traits.includes('Calm') === false && this.traits.includes('Angry') === false){
 				this.traits.push('Calm');
 			} else {
 				this.lightSideTrait647();
@@ -534,7 +534,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 23:
-			if(this.traits.includes('Patient') === false){
+			if(this.traits.includes('Patient') === false && this.traits.includes('Impatient') === false){
 				this.traits.push('Patient');
 			} else {
 				this.lightSideTrait647();
@@ -542,7 +542,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 24:
-			if(this.traits.includes('Wise') === false){
+			if(this.traits.includes('Wise') === false && this.traits.includes('Foolish') === false){
 				this.traits.push('Wise');
 			} else {
 				this.lightSideTrait647();
@@ -550,7 +550,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 25:
-			if(this.traits.includes('Generous') === false){
+			if(this.traits.includes('Generous') === false && this.traits.includes('Greedy') === false){
 				this.traits.push('Generous');
 			} else {
 				this.lightSideTrait647();
@@ -558,7 +558,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 26:
-			if(this.traits.includes('Imaginative') === false){
+			if(this.traits.includes('Imaginative') === false && this.traits.includes('Dull') === false){
 				this.traits.push('Imaginative');
 			} else {
 				this.lightSideTrait647();
@@ -566,7 +566,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 27:
-			if(this.traits.includes('Forgiving') === false){
+			if(this.traits.includes('Forgiving') === false && this.traits.includes('Vengeful') === false){
 				this.traits.push('Forgiving');
 			} else {
 				this.lightSideTrait647();
@@ -574,7 +574,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 28:
-			if(this.traits.includes('Virtuous') === false){
+			if(this.traits.includes('Virtuous') === false && this.traits.includes('Amoral') === false && this.traits.includes('Immoral') === false){
 				this.traits.push('Virtuous');
 			} else {
 				this.lightSideTrait647();
@@ -582,7 +582,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 29:
-			if(this.traits.includes('Dependable') === false){
+			if(this.traits.includes('Dependable') === false && this.traits.includes('Untrustworthy') === false){
 				this.traits.push('Dependable');
 			} else {
 				this.lightSideTrait647();
@@ -590,7 +590,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 30:
-			if(this.traits.includes('Well-Mannered') === false){
+			if(this.traits.includes('Well-Mannered') === false && this.traits.includes('Rude') === false){
 				this.traits.push('Well-Mannered');
 			} else {
 				this.lightSideTrait647();
@@ -598,7 +598,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 31:
-			if(this.traits.includes('Benign') === false){
+			if(this.traits.includes('Benign') === false && this.traits.includes('Harsh') === false){
 				this.traits.push('Benign');
 			} else {
 				this.lightSideTrait647();
@@ -606,7 +606,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 32:
-			if(this.traits.includes('Friendly') === false){
+			if(this.traits.includes('Friendly') === false && this.traits.includes('Unfriendly') === false){
 				this.traits.push('Friendly');
 			} else {
 				this.lightSideTrait647();
@@ -614,7 +614,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 33:
-			if(this.traits.includes('Humble') === false){
+			if(this.traits.includes('Humble') === false && this.traits.includes('Egotistic') === false){
 				this.traits.push('Humble');
 			} else {
 				this.lightSideTrait647();
@@ -622,7 +622,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 34:
-			if(this.traits.includes('Energetic') === false){
+			if(this.traits.includes('Energetic') === false && this.traits.includes('Lazy') === false){
 				this.traits.push('Energetic');
 			} else {
 				this.lightSideTrait647();
@@ -630,7 +630,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 35:
-			if(this.traits.includes('Truthful') === false){
+			if(this.traits.includes('Truthful') === false && this.traits.includes('Liar') === false){
 				this.traits.push('Truthful');
 			} else {
 				this.lightSideTrait647();
@@ -638,7 +638,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 36:
-			if(this.traits.includes('Cheerful') === false){
+			if(this.traits.includes('Cheerful') === false && this.traits.includes('Morose') === false){
 				this.traits.push('Cheerful');
 			} else {
 				this.lightSideTrait647();
@@ -646,7 +646,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 37:
-			if(this.traits.includes('Enthusiastic') === false){
+			if(this.traits.includes('Enthusiastic') === false && this.traits.includes('Unenthusiastic') === false){
 				this.traits.push('Enthusiastic');
 			} else {
 				this.lightSideTrait647();
@@ -654,7 +654,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 38:
-			if(this.traits.includes('Thrifty') === false){
+			if(this.traits.includes('Thrifty') === false && this.traits.includes('Spendthrift') === false){
 				this.traits.push('Thrifty');
 			} else {
 				this.lightSideTrait647();
@@ -662,7 +662,7 @@ Character.prototype.lightSideTrait647 = function() {
 		break;
 
 		case 39:
-			if(this.traits.includes('Diplomatic') === false){
+			if(this.traits.includes('Diplomatic') === false && this.traits.includes('Tactless') === false){
 				this.traits.push('Diplomatic');
 			} else {
 				this.lightSideTrait647();
@@ -675,7 +675,7 @@ Character.prototype.darksideTrait648 = function(){
 	var ranTrait = Math.floor(Math.random() * (39 -1 + 1) + 1);
 	switch(ranTrait){
 		case 1:
-			if(this.traits.includes('Pessimist') === false){
+			if(this.traits.includes('Optimist') === false && this.traits.includes('Pessimist') === false){
 				this.traits.push('Pessimist');
 			} else {
 				this.darksideTrait648();
@@ -683,7 +683,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 2:
-			if(this.traits.includes('Egoist') === false){
+			if(this.traits.includes('Altuist') === false && this.traits.includes('Egoist') === false){
 				this.traits.push('Egoist');
 			}  else {
 				this.darksideTrait648();
@@ -691,7 +691,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 3:
-			if(this.traits.includes('Obstructive') === false){
+			if(this.traits.includes('Helpful') === false && this.traits.includes('Obstructive') === false){
 				this.traits.push('Obstructive');
 			}  else {
 				this.darksideTrait648();
@@ -699,7 +699,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 4:
-			if(this.traits.includes('Cruel') === false){
+			if(this.traits.includes('Kindly') === false && this.traits.includes('Cruel') === false){
 				this.traits.push('Cruel');
 			}  else {
 				this.darksideTrait648();
@@ -707,7 +707,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 5:
-			if(this.traits.includes('Careless') === false){
+			if(this.traits.includes('Considerate') === false && this.traits.includes('Careless') === false){
 				this.traits.push('Careless');
 			}  else {
 				this.darksideTrait648();
@@ -715,7 +715,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 6:
-			if(this.traits.includes('Thoughtless') === false){
+			if(this.traits.includes('Sober') === false && this.traits.includes('Thoughtless') === false){
 				this.traits.push('Thoughtless');
 			}  else {
 				this.darksideTrait648();
@@ -723,7 +723,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 7:
-			if(this.traits.includes('Flippant') === false){
+			if(this.traits.includes('Careful') === false && this.traits.includes('Flippant') === false){
 				this.traits.push('Flippant');
 			}  else {
 				this.darksideTrait648();
@@ -731,7 +731,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 8:
-			if(this.traits.includes('Drunkard') === false){
+			if(this.traits.includes('Teetotaler') === false && this.traits.includes('Drunkard') === false){
 				this.traits.push('Drunkard');
 			}  else {
 				this.darksideTrait648();
@@ -739,7 +739,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 9:
-			if(this.traits.includes('Suspicious') === false){
+			if(this.traits.includes('Trusting') === false && this.traits.includes('Suspicious') === false){
 				this.traits.push('Suspicious');
 			}  else {
 				this.darksideTrait648();
@@ -747,7 +747,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 10:
-			if(this.traits.includes('Violent') === false){
+			if(this.traits.includes('Peaceful') === false && this.traits.includes('Violent') === false){
 				this.traits.push('Violent');
 			}  else {
 				this.darksideTrait648();
@@ -755,7 +755,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 11:
-			if(this.traits.includes('Argumentative') === false){
+			if(this.traits.includes('Peacemaker') === false && this.traits.includes('Argumentative') === false){
 				this.traits.push('Argumentative');
 			}  else {
 				this.darksideTrait648();
@@ -763,7 +763,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 12:
-			if(this.traits.includes('Irreverent') === false){
+			if(this.traits.includes('Pious') === false && this.traits.includes('Irreverent') === false && this.traits.includes('Atheistic') === false){
 				this.traits.push('Irreverent');
 			}  else {
 				this.darksideTrait648();
@@ -771,7 +771,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 13:
-			if(this.traits.includes('Cheat') === false){
+			if(this.traits.includes('Honest') === false && this.traits.includes('Cheat') === false){
 				this.traits.push('Cheat');
 			}  else {
 				this.darksideTrait648();
@@ -779,7 +779,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 14:
-			if(this.traits.includes('Hateful') === false){
+			if(this.traits.includes('Loving') === false && this.traits.includes('Hateful') === false){
 				this.traits.push('Hateful');
 			}  else {
 				this.darksideTrait648();
@@ -787,7 +787,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 15:
-			if(this.traits.includes('Selfish') === false){
+			if(this.traits.includes('Giving') === false && this.traits.includes('Selfish') === false){
 				this.traits.push('Selfish');
 			}  else {
 				this.darksideTrait648();
@@ -795,7 +795,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 16:
-			if(this.traits.includes('Slovenly') === false){
+			if(this.traits.includes('Organized') === false && this.traits.includes('Filthy') === false){
 				this.traits.push('Slovenly');
 			}  else {
 				this.darksideTrait648();
@@ -803,7 +803,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 17:
-			if(this.traits.includes('Filthy') === false){
+			if(this.traits.includes('Clean') === false && this.traits.includes('Tardy') === false){
 				this.traits.push('Filthy');
 			}  else {
 				this.darksideTrait648();
@@ -811,7 +811,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 18:
-			if(this.traits.includes('Tardy') === false){
+			if(this.traits.includes('Punctual') === false && this.traits.includes('Self-doubting') === false){
 				this.traits.push('Tardy');
 			}  else {
 				this.darksideTrait648();
@@ -819,7 +819,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 19:
-			if(this.traits.includes('Self-doubting') === false){
+			if(this.traits.includes('Self-Confident') === false && this.traits.includes('Cowardly') === false){
 				this.traits.push('Self-doubting');
 			}  else {
 				this.darksideTrait648();
@@ -827,7 +827,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 20:
-			if(this.traits.includes('Cowardly') === false){
+			if(this.traits.includes('Courageous') === false && this.traits.includes('Cowardly') === false){
 				this.traits.push('Cowardly');
 			}  else {
 				this.darksideTrait648();
@@ -835,7 +835,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 21:
-			if(this.traits.includes('Disrepectful') === false){
+			if(this.traits.includes('Respectful') === false && this.traits.includes('Disrepectful') === false){
 				this.traits.push('Disrepectful');
 			}  else {
 				this.darksideTrait648();
@@ -843,7 +843,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 22:
-			if(this.traits.includes('Angry') === false){
+			if(this.traits.includes('Calm') === false && this.traits.includes('Angry') === false){
 				this.traits.push('Angry');
 			}  else {
 				this.darksideTrait648();
@@ -851,7 +851,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 23:
-			if(this.traits.includes('Impatient') === false){
+			if(this.traits.includes('Patient') === false && this.traits.includes('Impatient') === false){
 				this.traits.push('Impatient');
 			}  else {
 				this.darksideTrait648();
@@ -859,7 +859,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 24:
-			if(this.traits.includes('Foolish') === false){
+			if(this.traits.includes('Wise') === false && this.traits.includes('Foolish') === false){
 				this.traits.push('Foolish');
 			}  else {
 				this.darksideTrait648();
@@ -867,7 +867,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 25:
-			if(this.traits.includes('Greedy') === false){
+			if(this.traits.includes('Generous') === false && this.traits.includes('Greedy') === false){
 				this.traits.push('Greedy');
 			}  else {
 				this.darksideTrait648();
@@ -875,7 +875,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 26:
-			if(this.traits.includes('Dull') === false){
+			if(this.traits.includes('Imaginative') === false && this.traits.includes('Dull') === false){
 				this.traits.push('Dull');
 			}  else {
 				this.darksideTrait648();
@@ -883,7 +883,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 27:
-			if(this.traits.includes('Vengeful') === false){
+			if(this.traits.includes('Forgiving') === false && this.traits.includes('Vengeful') === false){
 				this.traits.push('Vengeful');
 			}  else {
 				this.darksideTrait648();
@@ -891,7 +891,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 28:
-			if(this.traits.includes('Immoral') === false){
+			if(this.traits.includes('Virtuous') === false && this.traits.includes('Amoral') === false && this.traits.includes('Immoral') === false){
 				this.traits.push('Immoral');
 			}  else {
 				this.darksideTrait648();
@@ -899,7 +899,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 29:
-			if(this.traits.includes('Untrustworthy') === false){
+			if(this.traits.includes('Dependable') === false && this.traits.includes('Untrustworthy') === false){
 				this.traits.push('Untrustworthy');
 			}  else {
 				this.darksideTrait648();
@@ -907,7 +907,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 30:
-			if(this.traits.includes('Rude') === false){
+			if(this.traits.includes('Well-Mannered') === false && this.traits.includes('Rude') === false){
 				this.traits.push('Rude');
 			}  else {
 				this.darksideTrait648();
@@ -915,7 +915,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 31:
-			if(this.traits.includes('Harsh') === false){
+			if(this.traits.includes('Benign') === false && this.traits.includes('Harsh') === false){
 				this.traits.push('Harsh');
 			}  else {
 				this.darksideTrait648();
@@ -923,7 +923,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 32:
-			if(this.traits.includes('Unfriendly') === false){
+			if(this.traits.includes('Friendly') === false && this.traits.includes('Unfriendly') === false){
 				this.traits.push('Unfriendly');
 			}  else {
 				this.darksideTrait648();
@@ -931,7 +931,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 33:
-			if(this.traits.includes('Egotistic') === false){
+			if(this.traits.includes('Humble') === false && this.traits.includes('Egotistic') === false){
 				this.traits.push('Egotistic');
 			}  else {
 				this.darksideTrait648();
@@ -939,7 +939,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 34:
-			if(this.traits.includes('Lazy') === false){
+			if(this.traits.includes('Energetic') === false && this.traits.includes('Lazy') === false){
 				this.traits.push('Lazy');
 			}  else {
 				this.darksideTrait648();
@@ -947,7 +947,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 35:
-			if(this.traits.includes('Liar') === false){
+			if(this.traits.includes('Truthful') === false && this.traits.includes('Liar') === false){
 				this.traits.push('Liar');
 			}  else {
 				this.darksideTrait648();
@@ -955,7 +955,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 36:
-			if(this.traits.includes('Morose') === false){
+			if(this.traits.includes('Cheerful') === false && this.traits.includes('Morose') === false){
 				this.traits.push('Morose');
 			}  else {
 				this.darksideTrait648();
@@ -963,7 +963,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 37:
-			if(this.traits.includes('Unenthusiastic') === false){
+			if(this.traits.includes('Enthusiastic') === false && this.traits.includes('Unenthusiastic') === false){
 				this.traits.push('Unenthusiastic');
 			}  else {
 				this.darksideTrait648();
@@ -971,7 +971,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 38:
-			if(this.traits.includes('Spendthrift') === false){
+			if(this.traits.includes('Thrifty') === false && this.traits.includes('Spendthrift') === false){
 				this.traits.push('Spendthrift');
 			}  else {
 				this.darksideTrait648();
@@ -979,7 +979,7 @@ Character.prototype.darksideTrait648 = function(){
 		break;
 
 		case 39:
-			if(this.traits.includes('Tactless') === false){
+			if(this.traits.includes('Diplomatic') === false && this.traits.includes('Tactless') === false){
 				this.traits.push('Tactless');
 			}  else {
 				this.darksideTrait648();
