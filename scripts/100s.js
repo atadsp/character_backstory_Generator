@@ -776,6 +776,7 @@ Character.prototype.unusualBirth112 = function(){
 	for(i = 0; i< adultran; i++){
 		this.significantAdultEvents217();
 	}
+	this.sexualDisorder649f();
 	this.alignmentControl();
 	this.postChar();
 };
