@@ -552,34 +552,9 @@ this.TimeofBirth109();
 };
 
 Character.prototype.TimeofBirth109 = function(){
-	var ranMonth = Math.floor(Math.random() * (12 -1 + 1) + 1);
+	ranMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	this.birthMonth = ranMonth.randomElement();
 
-    switch(ranMonth){
-        case 1: this.birthMonth = "January";
-            break;
-        case 2: this.birthMonth = "February";
-            break;
-        case 3: this.birthMonth = "March";
-            break;
-        case 4: this.birthMonth = "April";
-            break;
-        case 5: this.birthMonth = "May";
-            break;
-        case 6: this.birthMonth = "June";
-            break;
-        case 7: this.birthMonth = "July";
-            break;
-        case 8: this.birthMonth = "August";
-            break;
-        case 9: this.birthMonth = "September";
-            break;
-        case 10: this.birthMonth = "October";
-            break;
-        case 11: this.birthMonth = "November";
-            break;
-        case 12: this.birthMonth = "December";
-            break;
-        }
 	if(this.birthMonth === 'February'){
 		this.birthDay = Math.floor(Math.random() * (28 -1 + 1) + 1);
 		var extraDay = Math.floor(Math.random() * (4 -1 + 1) + 1);
@@ -776,7 +751,7 @@ Character.prototype.unusualBirth112 = function(){
 	for(i = 0; i< adultran; i++){
 		this.significantAdultEvents217();
 	}
-	this.sexualDisorder649f();
+	this.blessings869('birthEvent');
 	this.alignmentControl();
 	this.postChar();
 };
@@ -871,7 +846,7 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 					this.specialBonus.push('Extremely tanned skin. Bonus to natural armor (already included.)');
 					this.naturalArmorBonus ++;
 				} else if (dayBonus === 6){
-					this.specialBonus.push("-" + ranAttribute +" to primary casting attribute at noon and the hour following.");
+					this.specialBonus.push("-" + ranAttribute +" to primary casting attribute at midnight and the hour following.");
 				} else if (dayBonus ===7){
 					this.stealthRank--;
 				} else if (dayBonus ===8 || dayBonus === 9){
@@ -988,7 +963,7 @@ Character.prototype.unusualBirthEvents113 = function(bonus){
 	} else if (birthEvent < 111 && birthEvent > 105 && ($.inArray(32, this.birthEventNum) === -1)){
 		this.birthEventNum.push(32);
 		this.birthEvent.push(this.charName + " is the offspring of a mortal and a demon. Those that know this fact will more than likely shun or even seek to destroy " + this.objectivePronoun + ".");
-		for(i = 0; i < 6; i++){
+		for(i = 0; i < 7; i++){
 			var d6 = Math.floor(Math.random() * (6 - 1 + 1) +1);
 			var amount = Math.floor(Math.random() * (3 - 1 + 1) +1);
 			if(i === 1){

@@ -2,7 +2,9 @@ Character.prototype.tragedies528 = function(eventchain){
 	var tragedy = '';
 	console.log('tragedy');
 if(eventchain === 'birthEvent'){
-	this.birthEvent.push(this.charName + " was born immediately after " + tragedy + " Some superstitious folk who know of this occurance might believe that " + this.subjectivePronoun + " was related to the tragedy.");
+	if(this.birthEvent.includes(this.charName + " was born immediately after " + tragedy + " Some superstitious folk who know of this occurance might believe that " + this.subjectivePronoun + " was related to the tragedy.") === false){
+		this.birthEvent.push(this.charName + " was born immediately after " + tragedy + " Some superstitious folk who know of this occurance might believe that " + this.subjectivePronoun + " was related to the tragedy.");
+	}
 } else if(eventchain === 'childhood'){
 	this.childEvent.push(this.charName + " experienced " + tragedy);
 } else if(eventchain === 'adolescent'){

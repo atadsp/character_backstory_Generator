@@ -71,6 +71,11 @@ function Character(){
 	this.ridingRank = 0;
 	this.streetFightRank = 0;
 	this.stealthRank = 0;
+	this.singingRank = 0;
+	this.artistryRank = 0;
+	this.moneyManagementRank = 0;
+	this.magicRank = 0;
+	this.mechanicalRank = 0;
 	//array of all character items
 	this.itemArry = [];
 	this.wealth = 0;
@@ -94,6 +99,9 @@ function Character(){
 	this.traitStrength = [];
 	//other stuff
 	this.loverDeath = false;
+	this.loverLife = false;
+	this.curses = [];
+	this.blessings = [];
 	this.runaway = false;
 	//npc stuff
 	this.playerNote = [];
@@ -151,6 +159,10 @@ Character.prototype.generateCharacter = function(){
 	this.stealthRank = 0;
 	this.bornAtNight = false;
 	this.bornAtDay = false;
+	this.loverDeath = false;
+	this.loverLife = false;
+	this.curses.length = 0;
+	this.blessings.length = 0;
 	this.strength = 0;
 	this.dextarity = 0;
 	this.consitution = 0;
@@ -174,6 +186,11 @@ Character.prototype.generateCharacter = function(){
 	this.totalLight = 0;
 	this.totalDark = 0;
 	this.playerNote.length = 0;
+	this.singingRank = 0;
+	this.artistryRank = 0;
+	this.moneyManagementRank = 0;
+	this.magicRank = 0;
+	this.mechanicalRank = 0;
 	this.charName = $("#charName").val();
 	this.isPlayerCharacter = true;
 	this.setGender();
@@ -273,6 +290,21 @@ if(this.streetFightRank > 0 || this.streetFightRank < 0){
 if(this.stealthRank > 0 || this.stealthRank < 0){
 	$("#skillList").append("<li class='skills list-group-item'> Stealth Ranks: " + this.stealthRank + "</li>");
 }
+if(this.singingRank > 0 || this.singingRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Singing Ranks: " + this.singingRank + "</li>");
+}
+if(this.artistryRank > 0 || this.artistryRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Artistry Ranks: " + this.artistryRank + "</li>");
+}
+if(this.moneyManagementRank > 0 || this.moneyManagementRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Money Management Ranks: " + this.moneyManagementRank + "</li>");
+}
+if(this.magicRank > 0 || this.magicRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Magic Use Ranks: " + this.magicRank + "</li>");
+}
+if(this.mechanicalRank > 0 || this.mechanicalRank < 0){
+	$("#skillList").append("<li class='skills list-group-item'> Mechanical Ranks: " + this.mechanicalRank + "</li>");
+}
 
 for(i=0; i < this.traits.length; i++){
 	$("#traitInfo").append("<li class='traitLI'>" + this.traits[i] + ": " + this.traitStrength[i] + "/100 </li>");
@@ -282,3 +314,9 @@ for(i=0; i < this.playerNote.length; i++){
 	$("#playerNotes").append("<div class='note'>" + this.playerNote[i] + "</div");
 }
 };
+
+	this.singingRank = 0;
+	this.artistryRank = 0;
+	this.moneyManagementRank = 0;
+	this.magicRank = 0;
+	this.mechanicalRank = 0;
